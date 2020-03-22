@@ -23,7 +23,7 @@ export default {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'docs'), // Note: Physical files are only output by the production build task `npm run build`.
-    publicPath: '/covid/',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   plugins: [
