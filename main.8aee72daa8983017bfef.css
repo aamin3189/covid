@@ -13,4 +13,4 @@
 .countries{padding:0 10px}.countries .controls{height:50px;position:fixed;width:100%;top:0;left:0;background-color:#efeff4}.countries .controls .search-control .top-controls{display:flex;margin-top:5px;color:#2955d9}.countries .controls .search-control .top-controls .back{float:left;align-items:center;display:flex;flex:2;-moz-column-count:#2955d9;column-count:#2955d9}.countries .controls .search-control .top-controls .sort{align-items:center;flex:2;display:flex;float:right;justify-content:flex-end}.countries .list{margin-top:70px}
 body{font-family:Roboto,sans-serif;background-color:#fff}.am-search-clear{display:none!important}.blink{animation:blink 2s steps(5,start) infinite;-webkit-animation:blink 1s steps(5,start) infinite}@keyframes blink{to{visibility:hidden}}@-webkit-keyframes blink{to{visibility:hidden}}
 
-/*# sourceMappingURL=main.288144712c51b683c77d.css.map*/
+/*# sourceMappingURL=main.8aee72daa8983017bfef.css.map*/
