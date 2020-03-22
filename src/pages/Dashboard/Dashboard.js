@@ -188,7 +188,7 @@ class Dashboard extends Component {
                 (this.state.totalStats.deaths / totalStats.cases) *
                 100
               ).toFixed(0)}%`}
-              extra={`Pendamic`}
+              extra={`Pandemic`}
               color="#DD7652"
               textAlign="center"
             />
