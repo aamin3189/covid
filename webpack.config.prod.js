@@ -23,7 +23,7 @@ export default {
   target: 'web',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     publicPath: '/covid/',
     filename: '[name].[contenthash].js'
   },
