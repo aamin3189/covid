@@ -3,10 +3,13 @@ import Axios from "axios";
 import conf from "../../config/config";
 import NDonut from "../../components/charts/Donut";
 import Legend from "../../components/legend/Legend";
+import _ from 'underscore';
 import "./dashboard.scss";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
-import '../../components/legend/legend.scss'
+import '../../components/legend/legend.scss';
+import {PullToRefresh} from 'antd-mobile';
+
 const sketch = {
   height: 10,
   width: 80,
@@ -21,7 +24,14 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
-    this.setState({ loading: true });
+    this.getData();
+  }
+
+  getData = () => {
+    this.setState({ 
+      stats: null,
+      totalStats: null,
+      loading: true });
     this.getTotalStats();
   }
 
@@ -77,10 +87,16 @@ class Dashboard extends Component {
         totalStats.critical += countries[i].critical;
       }
 
+
+
+
       this.setState({
         totalStats,
         countries,
-        loading: false
+        loading: false,
+        india:  _.find(countries,(d)=>{
+          return d.country == 'India'
+        })
       });
 
       localStorage.setItem("countries", JSON.stringify(countries));
@@ -94,6 +110,7 @@ class Dashboard extends Component {
   render() {
     const { totalStats } = this.state;
     return (
+      <PullToRefresh onRefresh={()=>this.getData()} indicator={{ }}>
       <div className="dashboard">
         <div className="stats">
           {this.state.stats ? (
@@ -197,12 +214,33 @@ class Dashboard extends Component {
               <Skeleton width={sketch.width} height={sketch.height} count={sketch.line} />
             </div>
           )}
+
+
+          {this.state.totalStats ? (
+            <Link to="india">
+            <Legend
+              info="India"
+              number={
+                this.state.india.cases
+              }
+              extra={`${this.state.india.deaths} died`}
+              icon="india"
+              color="#367DD9"
+              textAlign="right"
+            />
+            </Link>
+          ) : (
+            <div className="legend">
+              <Skeleton width={sketch.width} height={sketch.height} count={sketch.line} />
+            </div>
+          )}
         </div>
 
         <div>
           <img src={require("./stay-home.svg")} alt="stay-home" />
         </div>
       </div>
+      </PullToRefresh>
     );
   }
 }
