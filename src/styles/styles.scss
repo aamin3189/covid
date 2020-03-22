@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,700,900&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FFF;
+}
+.am-search-clear{
+  display: none !important;
+}
+
+.blink {
+  animation: blink 2s steps(5, start) infinite;
+  -webkit-animation: blink 1s steps(5, start) infinite;
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../styles/variable.scss';
+
+.country-item{
+    border-bottom: 1px solid #eee;
+    padding: 10px 0 10px 0;
+    .top-line{
+        margin-bottom: 7px;
+        .name{
+            float: left;
+        }
+        .case{
+            text-align: right;
+            color: $nSecondText;
+        }
+    }
+    .second-line{
+        span{
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .active{
+            color: $nyellow;
+        }
+        .dead{
+            color: $nRed;
+        }
+        .recovered{
+            color: $nGreen;
+        }
+    }
+}

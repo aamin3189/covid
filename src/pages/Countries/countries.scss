@@ -1,0 +1,36 @@
+@import '../../styles/variable.scss';
+.countries{
+    padding: 0 10px 0 10px;
+    .controls{
+        height: 50px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: #efeff4;
+        .search-control{
+            .top-controls{
+                display: flex;
+                margin-top: 5px;
+                color: $blue;
+                .back{
+                    float: left; 
+                    align-items: center;
+                    display: flex;
+                    flex: 2;
+                    columns: $blue;
+                }
+                .sort{
+                    align-items: center;
+                    flex: 2;
+                    display: flex;
+                    float: right;
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+    .list{
+        margin-top: 70px;
+    }
+}

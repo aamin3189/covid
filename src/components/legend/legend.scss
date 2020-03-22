@@ -1,0 +1,21 @@
+@import '../../styles/variable.scss';
+
+.legend{
+    flex: 0 0 33.333333%;
+    margin-bottom: 20px;
+    .info{
+        color: $nSecondText;
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    .number{
+        font-weight: 600;
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+    .extra{
+        color: $nText;
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+}
