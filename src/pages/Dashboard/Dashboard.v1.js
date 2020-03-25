@@ -35,7 +35,8 @@ class DashboardV1 extends Component {
         getDetailedStats().then(data=>{
             this.setState({
                 totalStats: data
-            })
+            });
+            localStorage.setItem("countries", JSON.stringify(data.countries));
         })
     }
 
