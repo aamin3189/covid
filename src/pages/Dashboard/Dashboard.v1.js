@@ -72,7 +72,7 @@ class DashboardV1 extends Component {
                             <Bulet 
                                 color={"#3B8313"}
                                 title={"Recovered"}
-                                mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
+                                mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.recovered)}
                                 count={`${(
                                     (this.state.totalStats.totalStats.recovered / this.state.totalStats.totalStats.cases) *
                                     100
