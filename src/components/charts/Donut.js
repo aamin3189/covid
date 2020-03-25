@@ -9,7 +9,7 @@ export default class NDonut extends PureComponent {
 
   render() {
     return (
-      <PieChart width={window.screen.width} height={window.screen.height/2} onMouseEnter={this.onPieEnter}>
+      <PieChart width={this.props.width} height={this.props.height} onMouseEnter={this.onPieEnter}>
         <Pie
           data={this.props.data}
           {...this.props}

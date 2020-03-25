@@ -184,7 +184,7 @@ class Dashboard extends Component {
               <Legend
                 info="Countries"
                 number={this.state.countries.length}
-                extra={`${((this.state.countries.length / 197) * 100).toFixed(
+                extra={`${((this.state.countries.length / 198) * 100).toFixed(
                   0
                 )}% worldwide`}
                 color="#7F70D3"

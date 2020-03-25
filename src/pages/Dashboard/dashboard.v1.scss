@@ -1,0 +1,47 @@
+.db-v1{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    margin: 1.3em;
+    .top{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .head-text{
+        color: #7C7C7C;
+
+    }
+    .timeline{
+        border: 1px solid #DDDDDD;
+        border-radius: 4px;
+        padding: 4px;
+        .header{
+            font-size: 12px;
+            position: absolute;
+            color: #7c7C7C;
+            margin-left: 10px;
+            margin-top: 4px;
+        }
+    }
+    .countries{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 1em;
+        padding: 0;
+        .india,.other-countries{
+            border: 1px solid #DDD;
+            border-radius: 4px;
+            min-height: 100px;
+            text-align: center;
+            padding: 10px;
+        }
+        .flex-box{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            a{
+                color: #EB5569;
+            }
+        }
+    }
+}

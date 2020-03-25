@@ -45,10 +45,9 @@ class Countries extends Component {
                                     size="md" type="left"/>
                                     Dashboard
                                 </Link>
-                            <div className="sort">
-                                {/* Filter
-                                <Icon size="md" type="check" /> */}
-                            </div>
+                                <Link to="/worldmap" style={{marginRight:'10px'}}>
+                                    World map
+                                </Link>
                         </div>
                         <SearchBar
                             placeholder="Search" maxLength={5} 
