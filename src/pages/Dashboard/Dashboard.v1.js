@@ -163,10 +163,10 @@ class DashboardV1 extends Component {
                     }
                 </div>
                 <div className="precutions">
-                    <img style={{width:'100%'}} src={require("./safty.svg")} alt="safty" />
+                    <img style={{width:'100%'}} src={require("./safty.png")} alt="safty" />
                 </div>
                 <div className="banner">
-                    <img style={{width:'100%'}} src={require("./banner.svg")} alt="safty" />
+                    <img style={{width:'100%'}} src={require("./banner.png")} alt="safty" />
                 </div>
             </div>
         );
