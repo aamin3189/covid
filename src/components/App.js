@@ -8,6 +8,7 @@ import Countries from '../pages/Countries/Countries'
 import { HashRouter, Route, Link } from "react-router-dom";
 import India from "../pages/India/India";
 import DashboardV1 from "../pages/Dashboard/Dashboard.v1";
+import WorldMap from "../pages/WorldMap/WorldMap";
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Route exact path="/" component={DashboardV1} />
           <Route path="/countries" component={Countries} />
           <Route path="/india" component={India} />
+          <Route path="/worldmap" component={WorldMap} />
         </HashRouter>
       </div>
     );

@@ -17,7 +17,7 @@ function Bulet(props) {
         <div style={{marginBottom: '1em'}}>
             <div style={{marginBottom:'4px'}}>
                 <Circle color={props.color} />
-                <div style={{fontWeight:400,fontSize:'12px'}}>
+                <div style={{fontWeight:300,fontSize:'12px'}}>
                     {props.title} 
                 </div>
             </div>
@@ -25,7 +25,7 @@ function Bulet(props) {
                 <Link to={props.linkTo} style={{fontWeight:400,fontSize:'20px',color: props.color}}>
                     {props.mainNumber} 
                 </Link>
-                <div style={{fontSize:'10px',color:"#7c7c7c"}}>10 New</div>
+            <div style={{fontSize:'10px',color:"#7c7c7c"}}>{props.count}</div>
             </div>
         </div>
     );

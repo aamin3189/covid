@@ -19,22 +19,24 @@ const Container = styled.div`
     grid-gap: 11px;
 `
 
+const TOTAL_NUM_OF_COUNTRIES =198;
 
 class CountryTile extends Component {
 
     render() {
         return (
-                <Container>
+                <Container onClick={()=>this.props.history.push("/countries")}>
                     <TotalCountry>
-                        {this.props.countryCount} &nbsp;
-                        <small style={{color:"#666"}}>{
-                            this.props.countryPer
-                        }</small>
+                        {/* <img style={{height:12}} src={require('./blink.gif')} alt="blink" /> */}
+                        {this.props.total}
+                        {/* <small style={{color:"#666"}}> {
+                            ((this.props.total/TOTAL_NUM_OF_COUNTRIES)*100).toFixed(0)
+                        }%</small> */}
                     </TotalCountry>
                     <Info>
-                        Countries, areas or teritories with cases
+                        Countries Worldwide
                     </Info>
-                    <Link to="/stats">
+                    <Link to="/countries">
                         View Details
                     </Link>
                 </Container>
@@ -43,8 +45,7 @@ class CountryTile extends Component {
 }
 
 CountryTile.propTypes = {
-    countryPer: PropTypes.number,
-    countryCount: PropTypes.number,
+    total: PropTypes.number
 };
 
 export default CountryTile;

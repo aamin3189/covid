@@ -6,6 +6,9 @@ import NDonut from '../../components/charts/Donut';
 import TinyLineChart from '../../components/TinyLinechart/TinyLineChart';
 import CountryTile from '../../components/CountryTile/CountryTile';
 import IndividualCountry from '../../components/CountryTile/IndividualCountry';
+import moment from 'moment';
+import Skeleton from "react-loading-skeleton";
+
 
 class DashboardV1 extends Component {
 
@@ -49,35 +52,59 @@ class DashboardV1 extends Component {
                 </div>
                 <div className="top">
                     <div style={{marginTop:15}}>
-                        { this.state.totalStats &&
-                            <>
+                        { this.state.totalStats ?
                             <Bulet 
                                 color={"#EB9B25"}
                                 title={"Active Case"}
                                 mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
-                                count={0}
+                                count={
+                                    `+${this.numberWithCommas(this.state.totalStats.totalStats.newCases)} New`
+                                }
                             />
-
+                            :
+                            <Skeleton 
+                                count={3}
+                                width={"70%"}
+                            />
+                        }
+                        { this.state.totalStats ?
                             <Bulet 
                                 color={"#3B8313"}
                                 title={"Recovered"}
                                 mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
-                                count={0}
+                                count={`${(
+                                    (this.state.totalStats.totalStats.recovered / this.state.totalStats.totalStats.cases) *
+                                    100
+                                  ).toFixed(0)}% recovered`}
                             />
-
+                            :
+                            <Skeleton 
+                                count={2}
+                                width={"70%"}
+                                style={{marginBotton: 5}}
+                            />
+                        }
+                        { this.state.totalStats ?
                             <Bulet 
-                                color={"#EB9B25"}
-                                title={"Active Case"}
-                                mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
-                                count={0}
+                                color={"#C31112"}
+                                title={"Death"}
+                                mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.deaths)}
+                                count={
+                                    `+${this.numberWithCommas(this.state.totalStats.totalStats.newDeaths)} New`
+                                }
                             />
-                            </>
+                            :
+                            <Skeleton 
+                                count={3}
+                                width={"70%"}
+                                style={{marginBotton: 5}}
+                            />
                         }
                     
                     </div>
                     <div>
                         {
-                            this.state.stats &&
+                            this.state.stats ?
                             <NDonut 
                                 width={window.screen.width/2} 
                                 height={200}
@@ -91,27 +118,55 @@ class DashboardV1 extends Component {
                                 total={this.state.total}
                                 cornerRadius={40}
                             />
+                            :
+                            <div style={{ marginTop: 0 }}>
+                                <Skeleton circle={true} height={130} width={130} />
+                            </div>
                         }
                     </div>
                 </div>
                 <div className="timeline">
-                    <span className="header">Timeline</span>
                     {
-                        this.state.historicalData &&
-                        <TinyLineChart 
-                            data={this.state.historicalData}
-                            height={100}
-                            width={window.screen.width-50}
-                        />
+                        this.state.historicalData ?
+                        <>
+                            <span className="header">
+                                Timeline :
+                                    {
+                                        moment(this.state.historicalData[0].name).format('MMM Do YYYY')
+                                    }
+                                    -
+                                    {
+                                        moment(this.state.historicalData[this.state.historicalData.length-1].name).format('MMM Do YYYY')
+                                    }
+                            </span>
+                            
+                            <TinyLineChart 
+                                data={this.state.historicalData}
+                                height={100}
+                                width={window.screen.width-50}
+                            />
+                        </>:
+                        <Skeleton height={100} width={window.screen.width-40} />
                     }
+                
                 </div>
                 <div className="countries">
-                    <div className='india flex-box'>
-                        <CountryTile country="india" />
-                    </div>
-                    <div className="other-countries"> 
-                        <IndividualCountry countryName="india" />
-                    </div>
+                    { this.state.totalStats &&
+                        <>
+                            <div className='india flex-box'>
+                                <CountryTile history={this.props.history} country="india" total={this.state.totalStats.countries.length} />
+                            </div>
+                            <div className="other-countries"> 
+                                <IndividualCountry history={this.props.history} countryName="india" />
+                            </div>
+                        </>
+                    }
+                </div>
+                <div className="precutions">
+                    <img style={{width:'100%'}} src={require("./safty.svg")} alt="safty" />
+                </div>
+                <div className="banner">
+                    <img style={{width:'100%'}} src={require("./banner.svg")} alt="safty" />
                 </div>
             </div>
         );

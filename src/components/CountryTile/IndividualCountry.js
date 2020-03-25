@@ -66,8 +66,9 @@ class IndividualCountry extends PureComponent {
             <>
                 {
                     this.state.data &&
-                    <Inc>
+                    <Inc onClick={()=>this.props.history.push("/india")}>
                         <Head>
+                            <img style={{height:12,marginRight:5}} src={this.state.data.countryInfo.flag} alt="Country" />
                             {this.props.countryName.toUpperCase()}
                             {/* <Circle />
                             <Case>
@@ -100,7 +101,7 @@ class IndividualCountry extends PureComponent {
                             </Stat>
                         </Grid>
 
-                        <Link to="/stats">
+                        <Link to="/india">
                             View Details
                         </Link>
                     </Inc>
