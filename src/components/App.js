@@ -17,8 +17,8 @@ class App extends React.Component {
     return (
       <div>
         <HashRouter basename='/'>
-          <Route exact path="/" component={Dashboard} />
-          {/* <Route exact path="/" component={DashboardV1} /> */}
+          {/* <Route exact path="/" component={Dashboard} /> */}
+          <Route exact path="/" component={DashboardV1} />
           <Route path="/countries" component={Countries} />
           <Route path="/india" component={India} />
         </HashRouter>
