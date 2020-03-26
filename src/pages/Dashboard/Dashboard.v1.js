@@ -8,6 +8,7 @@ import CountryTile from '../../components/CountryTile/CountryTile';
 import IndividualCountry from '../../components/CountryTile/IndividualCountry';
 import moment from 'moment';
 import Skeleton from "react-loading-skeleton";
+import { PullToRefresh } from 'antd-mobile';
 
 
 class DashboardV1 extends Component {
@@ -20,6 +21,17 @@ class DashboardV1 extends Component {
     };
 
     componentDidMount(){
+        this.getData();
+    }
+
+    getData(){
+
+        this.setState({ 
+            stats: null,
+            totalStats: null,
+            total: true 
+        });
+
         getTotalStats().then(data=>{
             this.setState({
                 stats: data.stats,
@@ -45,6 +57,7 @@ class DashboardV1 extends Component {
     }
     render() {
         return (
+            <PullToRefresh onRefresh={()=>this.getData()} indicator={{ }}>
             <div className="db-v1">
                 <div>
                     <span className="head-text">
@@ -170,6 +183,7 @@ class DashboardV1 extends Component {
                     <img style={{width:'100%'}} src={require("./banner.png")} alt="safty" />
                 </div>
             </div>
+            </PullToRefresh>
         );
     }
 }

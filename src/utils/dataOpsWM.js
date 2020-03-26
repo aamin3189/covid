@@ -68,7 +68,7 @@ const getDetailedStats = async () => {
 
 
   const historicalData = async () => {
-    const data  = await Axios.get("https://corona.lmao.ninja/historical").then((resp)=>{
+    const data  = await Axios.get("https://corona.lmao.ninja/v2/historical").then((resp)=>{
       return resp.data
     });
 
@@ -79,7 +79,7 @@ const getDetailedStats = async () => {
 
     Object.keys(data[0].timeline.cases).forEach(element => {
       tx.cases[element] = 0;
-      tx.recovered[element] = 0
+      //tx.recovered[element] = 0
       tx.deaths[element] = 0
     })
 
@@ -87,7 +87,7 @@ const getDetailedStats = async () => {
       
       Object.keys(data[0].timeline.cases).forEach(element => {
         tx.cases[element] += data[i].timeline.cases[element] == undefined ? 0 : isNaN(parseInt(data[i].timeline.cases[element]))? 0 : parseInt(data[i].timeline.cases[element])
-        tx.recovered[element] += data[i].timeline.recovered[element] == undefined ? 0 : isNaN(parseInt(data[i].timeline.recovered[element]))? 0 : parseInt(data[i].timeline.recovered[element])
+        //tx.recovered[element] += data[i].timeline.recovered[element] == undefined ? 0 : isNaN(parseInt(data[i].timeline.recovered[element]))? 0 : parseInt(data[i].timeline.recovered[element])
         tx.deaths[element] += data[i].timeline.deaths[element] == undefined ? 0 : isNaN(parseInt(data[i].timeline.deaths[element])) ? 0 : parseInt(data[i].timeline.deaths[element])
       });
 
@@ -101,7 +101,7 @@ const getDetailedStats = async () => {
         name: key,
         deaths: tx.deaths[key],
         cases: tx.cases[key],
-        recovered: tx.recovered[key]
+        //recovered: tx.recovered[key]
       })
     })
 
