@@ -42,8 +42,8 @@ yarn start
 
 ## Contributors
 
-* **Aamin Khan** - *Initial work* - [PurpleBooth](https://www.linkedin.com/in/aamin-khan-47537885/)
-* **Khalida** - *Initial work* - [PurpleBooth](https://dribbble.com/khalida193)
+* **Aamin Khan** - *Initial work* - [Linked In](https://www.linkedin.com/in/aamin-khan-47537885/)
+* **Khalida** - *Initial work* - [Dribbble](https://dribbble.com/khalida193)
 
 
 ## License
