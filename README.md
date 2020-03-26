@@ -2,6 +2,10 @@
 
 This is a React project shows realtime Dashboard and Visualization of global pandemic due to SARS-CoV-2. 
 
+## How it looks
+
+<img height="200" src="https://raw.githubusercontent.com/aamin3189/covid/master/assets/screenshots/home.png">
+
 ## Getting Started
 
 Clone the repo
