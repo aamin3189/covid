@@ -36,7 +36,8 @@ class DashboardV1 extends Component {
             this.setState({
                 stats: data.stats,
                 total: data.total
-            })
+            });
+            window.scrollTo(0, 0)
         })
         historicalData().then((data)=>{
             this.setState({
