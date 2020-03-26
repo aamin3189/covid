@@ -42,8 +42,8 @@ yarn start
 
 ## Contributors
 
-* **Aamin Khan** - *Initial work* - [Linked In](https://www.linkedin.com/in/aamin-khan-47537885/)
-* **Khalida** - *Initial work* - [Dribbble](https://dribbble.com/khalida193)
+* **Aamin Khan** - *Dev* - [Linked In](https://www.linkedin.com/in/aamin-khan-47537885/)
+* **Khalida** - *Design* - [Dribbble](https://dribbble.com/khalida193)
 
 
 ## License
