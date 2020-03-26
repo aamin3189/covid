@@ -4,18 +4,11 @@ This is a React project shows realtime Dashboard and Visualization of global pan
 
 ## How it looks
 
-<p style="float:left;margin-right:20px">
-    <img height="500" src="https://raw.githubusercontent.com/aamin3189/covid/master/assets/screenshots/home.png">
-</p>
-<p style="float:left;margin-right:20px">
-    <img height="500" src="https://raw.githubusercontent.com/aamin3189/covid/master/assets/screenshots/india.png">
-</p>
-<p style="float:left;margin-right:20px">
-    <img height="500" src="https://raw.githubusercontent.com/aamin3189/covid/master/assets/screenshots/countries.png">
-</p>
-<p style="float:left;margin-right:20px">
-    <img height="500" src="https://raw.githubusercontent.com/aamin3189/covid/master/assets/screenshots/world.png">
-</p>
+
+
+
+![alt-text-1](assets/screenshots/home.png "title-1") ![alt-text-2](assets/screenshots/india.png "title-2")
+
 ## Getting Started
 
 Clone the repo
