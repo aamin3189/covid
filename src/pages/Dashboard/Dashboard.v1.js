@@ -8,8 +8,7 @@ import CountryTile from '../../components/CountryTile/CountryTile';
 import IndividualCountry from '../../components/CountryTile/IndividualCountry';
 import moment from 'moment';
 import Skeleton from "react-loading-skeleton";
-import { PullToRefresh } from 'antd-mobile';
-
+import { Link } from 'react-router-dom';
 
 class DashboardV1 extends Component {
 
@@ -58,12 +57,13 @@ class DashboardV1 extends Component {
     }
     render() {
         return (
-            <PullToRefresh onRefresh={()=>this.getData()} indicator={{ }}>
             <div className="db-v1">
                 <div>
                     <span className="head-text">
-                        Novel Coronavirus (COVID-19) Situation
+                        COVID-19 Situation
                     </span>
+                    <i class="fa fa-refresh refresh-icon" onClick={this.getData.bind(this)} aria-hidden="true"></i>
+
                 </div>
                 <div className="top">
                     <div style={{marginTop:15}}>
@@ -183,8 +183,12 @@ class DashboardV1 extends Component {
                 <div className="banner">
                     <img style={{width:'100%'}} src={require("./banner.png")} alt="safty" />
                 </div>
+                <div style={{textAlign:'center'}}>
+                    <Link to="dashboard-v0" style={{color: "#EB5569"}}>
+                        Old Dashboard >
+                    </Link>
+                </div>
             </div>
-            </PullToRefresh>
         );
     }
 }

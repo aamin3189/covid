@@ -111,6 +111,11 @@ class Dashboard extends Component {
     const { totalStats } = this.state;
     return (
       <PullToRefresh onRefresh={()=>this.getData()} indicator={{ }}>
+        <div style={{position: 'absolute',top:'19px',left:'21px',zIndex:9999}}>
+              <Link to="/" style={{color: "#EB5569"}}>
+                  <i className="fa fa-chevron-left"></i> Back
+              </Link>
+        </div>
       <div className="dashboard">
         <div className="stats">
           {this.state.stats ? (
@@ -124,6 +129,8 @@ class Dashboard extends Component {
               data={this.state.stats}
               total={this.state.total}
               cornerRadius={40}
+              width={window.screen.width} 
+              height={window.screen.height/2}
             />
           ) : (
             <div style={{ marginTop: 40 }}>
