@@ -23,7 +23,7 @@ class App extends React.Component {
           <Route exact path="/dashboard-v0" component={Dashboard} />
           <Route exact path="/" component={DashboardV1} />
           <Route path="/countries" component={Countries} />
-          <Route path="/india" component={India} />
+          {/* <Route path="/india" component={India} /> */}
           <Route path="/worldmap" component={WorldMap} />
           <Route path="/country/:countryName" component={CountryDetails} />
           <Route path="/credits" component={Credits} />
