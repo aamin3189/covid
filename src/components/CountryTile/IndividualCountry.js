@@ -55,10 +55,16 @@ class IndividualCountry extends PureComponent {
         data: null
     }
     async componentDidMount(){
-        const data = await axios.get(conf.api+"/countries/"+this.props.countryName).then((r)=>r.data)
-        this.setState({
-            data: data
-        })
+        if(this.props.countryName){
+            const data = await axios.get(conf.api+"/countries/"+this.props.countryName).then((r)=>r.data)
+            this.setState({
+                data: data
+            })
+        } else {
+            this.setState({
+                data: this.props.countryObj
+            })
+        }
     }
 
     render() {
@@ -69,7 +75,7 @@ class IndividualCountry extends PureComponent {
                     <Inc onClick={()=>this.props.history.push("/india")}>
                         <Head>
                             <img style={{height:12,marginRight:5}} src={this.state.data.countryInfo.flag} alt="Country" />
-                            {this.props.countryName.toUpperCase()}
+                            {this.state.data.country.toUpperCase()}
                             {/* <Circle />
                             <Case>
                                 +12

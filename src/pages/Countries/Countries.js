@@ -4,6 +4,7 @@ import {SearchBar,Icon} from 'antd-mobile';
 import './countries.scss';
 import { Link } from 'react-router-dom';
 import _ from 'underscore';
+import IndividualCountry from '../../components/CountryTile/IndividualCountry';
 
 class Countries extends Component {
     state = {
@@ -66,6 +67,10 @@ class Countries extends Component {
                                 key={i}
                                 countryObj={c}
                             />
+                            // <IndividualCountry 
+                            //     history={this.props.history}
+                            //     countryObj={c}
+                            // />
                         )
                     }
                 </div>

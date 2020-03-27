@@ -2,7 +2,7 @@
 
 .country-item{
     border-bottom: 1px solid #eee;
-    padding: 10px 0 10px 0;
+    padding: 15px 0 15px 0;
     .top-line{
         margin-bottom: 7px;
         .name{
@@ -36,5 +36,8 @@
     }
     .c-info{
         float: left;
+    }
+    a{
+        color: #000;
     }
 }

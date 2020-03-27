@@ -1,12 +1,16 @@
 import React from 'react';
 import './country.scss';
+import { Link } from 'react-router-dom';
 // const images = require.context('./flags', true);
 
-
+export const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function Country(props) {
     return (
         <div className="country-item">
+        <Link to={`/country/${props.countryObj.country}`}>
 
              <img alt="Country" className="country-flag" src={props.countryObj.countryInfo.flag} />
              
@@ -16,37 +20,38 @@ function Country(props) {
                         {props.countryObj.country}
                     </div>
                     <div className="case">
-                        {props.countryObj.cases} 
+                        {numberWithCommas(props.countryObj.cases)} 
                         {props.countryObj.todayCases > 0 &&
                         <span>
-                            (+{props.countryObj.todayCases})
+                            (+{numberWithCommas(props.countryObj.todayCases)})
                         </span>}
                     </div>
                 </div>
                 <div className="second-line">
                     <span className="active">
                         {
-                            props.countryObj.active
+                            numberWithCommas(props.countryObj.active)
                         }
                     </span>
                     <span className="dead">
                         {
-                            props.countryObj.deaths
+                            numberWithCommas(props.countryObj.deaths)
                         }
                         {
                             props.countryObj.todayDeaths > 0 &&
                             <txt> 
-                                (+{props.countryObj.todayDeaths})
+                                (+{numberWithCommas(props.countryObj.todayDeaths)})
                             </txt>
                         }
                     </span>   
                     <span className="recovered">
                             {
-                            props.countryObj.recovered
+                            numberWithCommas(props.countryObj.recovered)
                         }
                     </span>
                 </div>
               </div>
+        </Link>
         </div>
     );
 }
