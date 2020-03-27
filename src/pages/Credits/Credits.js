@@ -40,9 +40,9 @@ function Credits(props) {
                 <div>
                     Data by <a href="https://github.com/NovelCOVID/API">NovelCOVID/API</a>
                 </div>
-                <div>
+                {/* <div>
                     India Visualisation <a href="https://www.indiatoday.in/india/story/coronavirus-cases-in-india-covid19-states-cities-affected-1653852-2020-03-09">India Today</a>
-                </div>
+                </div> */}
             </Credit>
         </div>
     );

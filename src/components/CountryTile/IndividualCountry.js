@@ -72,8 +72,7 @@ class IndividualCountry extends PureComponent {
             <>
                 {
                     this.state.data &&
-                    <Inc>
-                        {/* onClick={()=>this.props.history.push("/india")} */}
+                    <Inc onClick={()=>this.props.history.push("/country/india")}>
                         <Head>
                             <img style={{height:12,marginRight:5}} src={this.state.data.countryInfo.flag} alt="Country" />
                             {this.state.data.country.toUpperCase()}
