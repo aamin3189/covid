@@ -184,8 +184,8 @@ class DashboardV1 extends Component {
                     <img style={{width:'100%'}} src={require("./banner.png")} alt="safty" />
                 </div>
                 <div style={{textAlign:'center'}}>
-                    <Link to="dashboard-v0" style={{color: "#EB5569"}}>
-                        Old Dashboard >
+                    <Link to="credits" style={{color: "#EB5569"}}>
+                        Credits >
                     </Link>
                 </div>
             </div>
