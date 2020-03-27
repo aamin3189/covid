@@ -32,17 +32,11 @@ function Credits(props) {
                 </div>
             </div>
             <Credit>
-                <div>
-                    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                <div>
-                    <a href="https://www.freepik.com/free-photos-vectors/business">Business vector created by freepik - www.freepik.com</a>
-                </div>
+                
                 <div>
                     Data by <a href="https://github.com/NovelCOVID/API">NovelCOVID/API</a>
                 </div>
-                {/* <div>
-                    India Visualisation <a href="https://www.indiatoday.in/india/story/coronavirus-cases-in-india-covid19-states-cities-affected-1653852-2020-03-09">India Today</a>
-                </div> */}
+                
             </Credit>
         </div>
     );

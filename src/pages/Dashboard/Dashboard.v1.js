@@ -60,6 +60,7 @@ class DashboardV1 extends Component {
             <div className="db-v1">
                 <div>
                     <span className="head-text">
+                        {/* <img height={20} src={require('./covid-19.svg')} alt="applogo" /> */}
                         COVID-19 Situation
                     </span>
                     <i className="fa fa-refresh refresh-icon" onClick={this.getData.bind(this)} aria-hidden="true"></i>
@@ -181,7 +182,7 @@ class DashboardV1 extends Component {
                     <img style={{width:'100%'}} src={require("./safty.png")} alt="safty" />
                 </div>
                 <div className="banner">
-                    <img style={{width:'100%'}} src={require("./banner.png")} alt="safty" />
+                    <img style={{width:'100%'}} src={require("./StayHome.jpg")} alt="safty" />
                 </div>
                 <div style={{textAlign:'center'}}>
                     <Link to="credits" style={{color: "#EB5569"}}>

@@ -46,9 +46,9 @@ class Countries extends Component {
                                     size="md" type="left"/>
                                     Dashboard
                                 </Link>
-                                <Link to="/worldmap" style={{marginRight:'10px'}}>
+                                {/* <Link to="/worldmap" style={{marginRight:'10px'}}>
                                     World map
-                                </Link>
+                                </Link> */}
                         </div>
                         <SearchBar
                             placeholder="Search" maxLength={5} 

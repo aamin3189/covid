@@ -244,7 +244,7 @@ class Dashboard extends Component {
         </div>
 
         <div>
-          <img src={require("./stay-home.svg")} alt="stay-home" />
+          <img src={require("./StayHome.jpg")} alt="stay-home" />
         </div>
       </div>
       </PullToRefresh>
