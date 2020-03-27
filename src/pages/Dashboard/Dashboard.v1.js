@@ -62,7 +62,7 @@ class DashboardV1 extends Component {
                     <span className="head-text">
                         COVID-19 Situation
                     </span>
-                    <i class="fa fa-refresh refresh-icon" onClick={this.getData.bind(this)} aria-hidden="true"></i>
+                    <i className="fa fa-refresh refresh-icon" onClick={this.getData.bind(this)} aria-hidden="true"></i>
 
                 </div>
                 <div className="top">
