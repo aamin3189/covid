@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './dashboard.v1.scss';
 import Bulet from '../../components/Bulet/Bulet';
-import { getTotalStats,historicalData,getDetailedStats } from '../../utils/dataOpsWM';
+import { getTotalStats,historicalData,getDetailedStats,getIndiaStats } from '../../utils/dataOpsWM';
 import NDonut from '../../components/charts/Donut';
 import TinyLineChart from '../../components/TinyLinechart/TinyLineChart';
 import CountryTile from '../../components/CountryTile/CountryTile';
@@ -10,6 +10,7 @@ import moment from 'moment';
 import Skeleton from "react-loading-skeleton";
 import { Link } from 'react-router-dom';
 import Tile from '../../components/Tile/Tile';
+import IndiaTile from '../../components/CountryTile/IndiaTile';
 
 class DashboardV1 extends Component {
 
@@ -17,11 +18,13 @@ class DashboardV1 extends Component {
         stats: null,
         totalStats: null,
         loading: true,
-        historicalData: null
+        historicalData: null,
+        india: null
     };
 
     componentDidMount(){
         this.getData();
+        this.getIndiaData();
     }
 
     getData(){
@@ -50,11 +53,21 @@ class DashboardV1 extends Component {
                 totalStats: data
             });
             localStorage.setItem("countries", JSON.stringify(data.countries));
-        })
+        });
+        this.getIndiaData();
     }
 
     numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    // Get india statistics 
+    async getIndiaData(){
+        getIndiaStats().then(data=>{
+            this.setState({
+                india: data
+            })
+        })
     }
     render() {
         return (
@@ -168,13 +181,22 @@ class DashboardV1 extends Component {
                 
                 </div>
                 <div className="countries">
-                    { this.state.totalStats &&
+                    { this.state.totalStats && this.state.india &&
                         <>
                             <div className='india flex-box'>
                                 <CountryTile history={this.props.history} country="india" total={this.state.totalStats.countries.length} />
                             </div>
                             <div className="other-countries"> 
-                                <IndividualCountry history={this.props.history} countryName="india" />
+                                {/* <IndividualCountry 
+                                    history={this.props.history} 
+                                    countryName="india" 
+                                    data={this.state.india}
+                                /> */}
+                                <IndiaTile 
+                                    history={this.props.history} 
+                                    countryName="india" 
+                                    data={this.state.india}
+                                />
                             </div>
                         </>
                     }

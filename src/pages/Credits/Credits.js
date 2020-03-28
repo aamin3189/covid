@@ -34,7 +34,9 @@ function Credits(props) {
             <Credit>
                 
                 <div>
-                    Data by <a href="https://github.com/NovelCOVID/API">NovelCOVID/API</a>
+                    World data powered by <a href="https://github.com/NovelCOVID/API">NovelCOVID/API</a>
+                    <br/><br/>
+                    India data powered by <a href="https://github.com/NovelCOVID/API">CovidIndia API</a>
                 </div>
                 
             </Credit>

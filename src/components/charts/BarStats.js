@@ -23,7 +23,7 @@ class BarStats extends Component {
           <Tooltip />
           <Legend verticalAlign="top" wrapperStyle={{ lineHeight: "40px" }} />
           <ReferenceLine y={0} stroke={this.props.refStroke} />
-          <Brush travellerWidth={30} dataKey="name" height={16} stroke={this.props.brushStroke} />
+          <Brush travellerWidth={30} dataKey={this.props.dataKey} height={16} stroke={this.props.brushStroke} />
           {
               this.props.keys.map((key,index)=>(
                 <Bar key={index} dataKey={key.name} fill={key.color} />

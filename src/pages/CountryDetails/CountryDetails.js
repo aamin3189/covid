@@ -130,11 +130,11 @@ class CountryDetails extends Component {
                                 <span className="header">
                                     Timeline :
                                         {
-                                            moment(this.state.historicalData[0].name).format('MMM Do YYYY')
+                                            moment(this.state.historicalData[0].name).format('MMM Do')
                                         }
                                         -
                                         {
-                                            moment(this.state.historicalData[this.state.historicalData.length-1].name).format('MMM Do YYYY')
+                                            moment(this.state.historicalData[this.state.historicalData.length-1].name).format('MMM Do')
                                         }
                                 </span>
                                 
