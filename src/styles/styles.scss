@@ -29,3 +29,24 @@ body {
     position: absolute;
     left: 11px;
 }
+
+.timeline{
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  padding: 4px;
+  text-align: left;
+  .header{
+      font-size: 12px;
+      position: absolute;
+      color: #7c7C7C;
+      margin-left: 10px;
+      margin-top: 4px;
+  }
+}
+.back-icon{
+  position: absolute;
+  bottom: 25px;
+  left: 13px;
+  color: #E57180;
+  font-size: 20px;
+}

@@ -9,6 +9,7 @@ import IndividualCountry from '../../components/CountryTile/IndividualCountry';
 import moment from 'moment';
 import Skeleton from "react-loading-skeleton";
 import { Link } from 'react-router-dom';
+import Tile from '../../components/Tile/Tile';
 
 class DashboardV1 extends Component {
 
@@ -178,6 +179,12 @@ class DashboardV1 extends Component {
                         </>
                     }
                 </div>
+
+                <div className="extra-links">
+                    <Tile history={this.props.history} className="fa fa-globe" title="World Map" to="/map" />
+                </div>
+
+
                 <div className="precutions">
                     <img style={{width:'100%'}} src={require("./safty.png")} alt="safty" />
                 </div>

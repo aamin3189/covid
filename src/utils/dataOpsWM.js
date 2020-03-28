@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import _ from 'underscore';
 import conf from '../config/config';
+import moment from 'moment';
 
 const getDetailedStats = async () => {
     let totalStats = {
@@ -110,8 +111,29 @@ const getDetailedStats = async () => {
   }
 
 
+  const getHistoricalDataContry = async (country) => {
+    const data  = await Axios.get("https://corona.lmao.ninja/v2/historical/"+country).then((resp)=>{
+      return resp.data
+    });
+    let arr = [];
+
+
+    Object.keys(data.timeline.cases).forEach(key => {
+      arr.push({
+        name: moment(key).format("MMM DD"),
+        deaths: data.timeline.deaths[key],
+        cases: data.timeline.cases[key],
+        //recovered: tx.recovered[key]
+      })
+    })
+
+    return arr
+  }
+
+
   export {
     getDetailedStats,
     getTotalStats,
-    historicalData
+    historicalData,
+    getHistoricalDataContry
   }

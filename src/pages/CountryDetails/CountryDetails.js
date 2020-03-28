@@ -8,11 +8,16 @@ import {Icon} from 'antd-mobile';
 import '../Countries/countries.scss';
 import { numberWithCommas } from "../Countries/Country";
 import Skeleton from "react-loading-skeleton";
+import { getHistoricalDataContry } from "../../utils/dataOpsWM";
+import moment from 'moment';
+import TinyLineChart from "../../components/TinyLinechart/TinyLineChart";
+import BarStats from "../../components/charts/BarStats";
 
 class CountryDetails extends Component {
 
     state = {
-        data: null
+        data: null,
+        historicalData: null
     }
   async componentDidMount() {
     const data = await axios
@@ -21,6 +26,14 @@ class CountryDetails extends Component {
     this.setState({
       data: data
     });
+    this.getTimeline(this.props.match.params.countryName)
+  }
+
+  getTimeline = async (country) => {
+    const data = await getHistoricalDataContry(country)
+    this.setState({
+        historicalData: data
+    })
   }
 
 
@@ -41,8 +54,9 @@ class CountryDetails extends Component {
             </div>
 
             {
-                this.state.data ?
+                
                 <Inc style={{marginTop:80}}>
+                    {this.state.data &&
                     <Head>
                         <div>
                             <img
@@ -60,9 +74,10 @@ class CountryDetails extends Component {
                         }
                         <small>(+{numberWithCommas(this.state.data.todayCases)})</small>
                         </div>
-                    </Head>
+                    </Head>}
 
-                    <Grid>
+                    {this.state.data &&
+                        <Grid>
                         <Stat color="#EB9B25">
                             <div className="num">
                             {
@@ -107,11 +122,54 @@ class CountryDetails extends Component {
                             <div className="case">Death Per 1M</div>
                         </Stat>
                     </Grid>
+                    }
+                    <div className="timeline">
+                    {
+                            this.state.historicalData ?
+                            <>
+                                <span className="header">
+                                    Timeline :
+                                        {
+                                            moment(this.state.historicalData[0].name).format('MMM Do YYYY')
+                                        }
+                                        -
+                                        {
+                                            moment(this.state.historicalData[this.state.historicalData.length-1].name).format('MMM Do YYYY')
+                                        }
+                                </span>
+                                
+                                <TinyLineChart 
+                                    data={this.state.historicalData}
+                                    height={100}
+                                    width={window.screen.width-50}
+                                />
+                            </>:
+                            <Skeleton height={100} width={window.screen.width-40} />
+                        }
+                    
+                    </div>
+
+                    <div className="timeline">
+                        {
+                            this.state.historicalData &&
+                            <BarStats 
+                                height={200}
+                                width={window.screen.width-50}
+                                margin={{top: 0, right: 0, left: 0, bottom: 0}}
+                                dataKey="name"
+                                refStroke="#7c7c7c"
+                                brushStroke="#7F70D3"
+                                keys={[
+                                    {name: "cases",color: "#EB9B1B"},
+                                    {name: "deaths",color: "#C31111"}
+                                ]}
+                                data={this.state.historicalData}
+                            />
+                        }
+                    </div>
+                    
                 </Inc>
-                :
-                <div style={{marginTop:60}}>
-                    <Skeleton height={window.screen.height-100} width={window.screen.width-20} />
-                </div>
+                
             }
           </div>
     );
