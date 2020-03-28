@@ -4,11 +4,16 @@ import {SearchBar,Icon} from 'antd-mobile';
 import './countries.scss';
 import { Link } from 'react-router-dom';
 import _ from 'underscore';
-import IndividualCountry from '../../components/CountryTile/IndividualCountry';
+import CommonModal from '../../components/Modal/CommonModal';
+import Axios from 'axios';
+import conf from '../../config/config';
+
 
 class Countries extends Component {
     state = {
-        countries: []
+        countries: [],
+        showModal: false,
+        selected: "Total"
     }
     componentDidMount(){
         this.setState({
@@ -34,6 +39,36 @@ class Countries extends Component {
             countries: JSON.parse(localStorage.getItem("countries"))
         })
     }
+
+
+    sortData(sortBy){
+        let whichSort = null;
+        if(sortBy == "Total"){
+            whichSort = "cases"
+        } else if(sortBy == "Active Case"){
+            whichSort = "active"
+        } else if( sortBy == "Deaths"){
+            whichSort = "deaths"
+        } else if( sortBy == "Recovered"){
+            whichSort = "recovered"
+        } else if( sortBy == "Death per 1 Million"){
+            whichSort = "deathsPerOneMillion"
+        } else if( sortBy == "New Cases"){
+            whichSort = "todayCases"
+        } else if( sortBy == "New Deaths"){
+            whichSort = "todayDeaths"
+        }
+
+
+
+        Axios.get(`${conf.api}/countries?sort=${whichSort}`).then((resp)=>{
+            this.setState({
+                countries: resp.data
+            })
+        })
+    }
+
+
     render() {
         return (
             <div className="countries">
@@ -46,9 +81,10 @@ class Countries extends Component {
                                     size="md" type="left"/>
                                     Dashboard
                                 </Link>
-                                {/* <Link to="/worldmap" style={{marginRight:'10px'}}>
-                                    World map
-                                </Link> */}
+                                <span onClick={()=>this.setState({showModal:true})} style={{marginRight:'10px'}}>
+                                    Sort By ({this.state.selected}) &nbsp;
+                                    <i class="fa fa-sort" aria-hidden="true"></i>
+                                </span>
                         </div>
                         <SearchBar
                             placeholder="Search" maxLength={5} 
@@ -74,6 +110,17 @@ class Countries extends Component {
                         )
                     }
                 </div>
+                <CommonModal 
+                    visible={this.state.showModal}
+                    onClose={()=>{
+                        this.setState({showModal:false})
+                    }}
+                    afterClose={()=>{
+                        this.sortData(this.state.selected)
+                    }}
+                    selectSort={(e)=>this.setState({selected:e})}
+                    selected={this.state.selected}
+                />
             </div>
         );
     }

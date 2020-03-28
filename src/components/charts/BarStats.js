@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import {BarChart, Bar, Brush, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import PropTypes from 'prop-types';
+import styled from "styled-components";
+
+const BarContainer = styled.div`
+    font-size: 10px;
+    font-family: Poppins;
+`
 
 class BarStats extends Component {
   render() {
     return (
-      <div>
+      <BarContainer>
         <BarChart
           width={this.props.width}
           height={this.props.height}
@@ -24,7 +30,7 @@ class BarStats extends Component {
               ))
           }
         </BarChart>
-      </div>
+      </BarContainer>
     );
   }
 }

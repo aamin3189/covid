@@ -158,7 +158,7 @@ class CountryDetails extends Component {
                                 margin={{top: 0, right: 0, left: 0, bottom: 0}}
                                 dataKey="name"
                                 refStroke="#7c7c7c"
-                                brushStroke="#7F70D3"
+                                brushStroke="#7c7c7c"
                                 keys={[
                                     {name: "cases",color: "#EB9B1B"},
                                     {name: "deaths",color: "#C31111"}
