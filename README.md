@@ -49,10 +49,6 @@ yarn start
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Data pulled from 
-
-* https://github.com/NovelCOVID/API
-* India Today
 
 
 
