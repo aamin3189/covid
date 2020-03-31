@@ -72,7 +72,7 @@ class CountryDetails extends Component {
                         {
                             numberWithCommas(this.state.data.cases)
                         }
-                        <small>(+{numberWithCommas(this.state.data.todayCases)})</small>
+                        <small>(&#8593;{numberWithCommas(this.state.data.todayCases)})</small>
                         </div>
                     </Head>}
 
@@ -93,7 +93,7 @@ class CountryDetails extends Component {
                         <Stat color="#C31112">
                             <div className="num">
                             {numberWithCommas(this.state.data.deaths)}{" "}
-                            <small>+{numberWithCommas(this.state.data.todayDeaths)}</small>
+                            <small>&#8593;{numberWithCommas(this.state.data.todayDeaths)}</small>
                             </div>
                             <div className="case">Death</div>
                         </Stat>

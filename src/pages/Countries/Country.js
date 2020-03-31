@@ -23,7 +23,7 @@ function Country(props) {
                         {numberWithCommas(props.countryObj.cases)} 
                         {props.countryObj.todayCases > 0 &&
                         <span>
-                            (+{numberWithCommas(props.countryObj.todayCases)})
+                            (&#8593;{numberWithCommas(props.countryObj.todayCases)})
                         </span>}
                     </div>
                 </div>
@@ -39,9 +39,9 @@ function Country(props) {
                         }
                         {
                             props.countryObj.todayDeaths > 0 &&
-                            <txt> 
-                                (+{numberWithCommas(props.countryObj.todayDeaths)})
-                            </txt>
+                            <sapn> 
+                                (&#8593;{numberWithCommas(props.countryObj.todayDeaths)})
+                            </sapn>
                         }
                     </span>   
                     <span className="recovered">

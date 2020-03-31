@@ -88,7 +88,9 @@ class DashboardV1 extends Component {
                                 title={"Active Case"}
                                 mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
                                 count={
-                                    `+${this.numberWithCommas(this.state.totalStats.totalStats.newCases)} New`
+                                    <span>
+                                        &#8593;{`${this.numberWithCommas(this.state.totalStats.totalStats.newCases)} New`}
+                                    </span>
                                 }
                             />
                             :
@@ -120,7 +122,9 @@ class DashboardV1 extends Component {
                                 title={"Death"}
                                 mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.deaths)}
                                 count={
-                                    `+${this.numberWithCommas(this.state.totalStats.totalStats.newDeaths)} New`
+                                    <span>
+                                         &#8593;{`${this.numberWithCommas(this.state.totalStats.totalStats.newDeaths)} New`}
+                                    </span>
                                 }
                             />
                             :

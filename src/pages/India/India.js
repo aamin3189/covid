@@ -82,7 +82,7 @@ class India extends Component {
                 <div style={{ fontSize: 20, fontWeight: 400, marginTop: 10 }}>
                   {numberWithCommas(data.statewise[0].confirmed)}
                   <small>
-                    (+{numberWithCommas(data.key_values[0].confirmeddelta)})
+                    (&nbsp;&#8593;{numberWithCommas(data.key_values[0].confirmeddelta)})
                   </small>
                 </div>
               </Head>
@@ -100,7 +100,7 @@ class India extends Component {
                   <div className="num">
                     {numberWithCommas(data.statewise[0].recovered)}
                     <small>
-                      +{numberWithCommas(data.key_values[0].recovereddelta)}
+                    &nbsp; &#8593;{numberWithCommas(data.key_values[0].recovereddelta)}
                     </small>
                   </div>
                   <div className="case">Recovered</div>
@@ -109,7 +109,7 @@ class India extends Component {
                   <div className="num">
                     {numberWithCommas(data.statewise[0].deaths)}{" "}
                     <small>
-                      +{numberWithCommas(data.key_values[0].deceaseddelta)}
+                       &nbsp; &#8593;{numberWithCommas(data.key_values[0].deceaseddelta)}
                     </small>
                   </div>
                   <div className="case">Death</div>
@@ -161,7 +161,7 @@ class India extends Component {
                 </div>
             }
 
-<div className="timeline">
+          <div className="timeline">
               {this.state.data ? (
                 <>
                   <span className="header">

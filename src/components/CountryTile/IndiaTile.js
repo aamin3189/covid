@@ -74,13 +74,13 @@ class IndiaTile extends Component {
 
                         <Grid>
                             <Stat color="#EB9B25">
-                            <div className="num">
-                                {data.statewise[0].confirmed} 
+                                <div className="num">
+                                    {data.statewise[0].confirmed} 
                                 <small>
-                                +{data.key_values[0].confirmeddelta}
+                                    &nbsp;&#8593;{data.key_values[0].confirmeddelta}
                                 </small>
                             </div>
-                                <div className="case">Cases</div>
+                                <div className="case"> Cases</div>
                             </Stat>
 
                             <Stat color="#3B8313">
@@ -92,7 +92,7 @@ class IndiaTile extends Component {
                             </Stat>
                             <Stat color="#C31112">
                                 <div className="num">{data.statewise[0].deaths} <small>
-                                        +{data.key_values[0].deceaseddelta}
+                                &#8593;{data.key_values[0].deceaseddelta}
                                         </small></div>
                                 <div className="case">Death</div>
                             </Stat>
