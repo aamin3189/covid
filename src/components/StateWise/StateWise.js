@@ -58,7 +58,7 @@ class StateWise extends Component {
                                 {
                                     this.state.data[st].districtData[district].delta.confirmed > 0 &&
                                     <span style={{color:"#C31111"}}>
-                                        &#8593; {st.delta.active}
+                                        &#8593; {this.state.data[st].districtData[district].delta.confirmed}
                                     </span>
                                 }
                             </span>
@@ -100,7 +100,7 @@ class StateWise extends Component {
                                                 {
                                                     st.delta.active > 0 &&
                                                     <span>
-                                                        &#8593; {st.delta.active}
+                                                        &nbsp;&#8593;{st.delta.active}
                                                     </span>
                                                 }
                                             </div>
