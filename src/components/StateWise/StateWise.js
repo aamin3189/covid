@@ -54,11 +54,11 @@ class StateWise extends Component {
                         <div style={{color:"#7c7c7c"}}>
                             <span>{district} </span>
                             <span style={{float:'right'}}>
-                                {this.state.data[st].districtData[district].confirmed}
+                                {this.state.data[st].districtData[district].confirmed} &nbsp;
                                 {
                                     this.state.data[st].districtData[district].delta.confirmed > 0 &&
                                     <span style={{color:"#C31111"}}>
-                                        &#8593; {this.state.data[st].districtData[district].delta.confirmed}
+                                        &#8593;{this.state.data[st].districtData[district].delta.confirmed}
                                     </span>
                                 }
                             </span>
