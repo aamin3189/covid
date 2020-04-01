@@ -75,6 +75,20 @@ class StateWise extends Component {
     render() {
         return (
             <div style={{ marginTop: 10, marginBottom: 10 }}>
+                <Summary style={{marginTop:'10px',marginBottom:'10px'}}>
+                        <div>
+                            Total
+                        </div>
+                        <div>
+                            Active
+                        </div>
+                        <div>
+                            Recovered
+                        </div>
+                        <div>
+                            Deaths
+                        </div>
+                </Summary>
                 {
                     this.state.data &&
                     <Accordion className="my-accordion" onChange={this.onChange}>
@@ -96,7 +110,7 @@ class StateWise extends Component {
                                                 {st.confirmed}
                                             </div>
                                             <div>
-                                                Active: {st.active} 
+                                                {st.active} 
                                                 {
                                                     st.delta.active > 0 &&
                                                     <span>
@@ -105,7 +119,7 @@ class StateWise extends Component {
                                                 }
                                             </div>
                                             <div>
-                                                Recoverd: {st.recovered}
+                                                {st.recovered}
                                                 {
                                                     st.delta.recovered > 0 &&
                                                     <span>
@@ -114,7 +128,7 @@ class StateWise extends Component {
                                                 }
                                             </div>
                                             <div>
-                                                Deaths: {st.deaths}
+                                                {st.deaths}
                                                 {
                                                     st.delta.deaths > 0 &&
                                                     <span>
