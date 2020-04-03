@@ -80,7 +80,7 @@ class DashboardV1 extends Component {
                         COVID-19 Situation
                     </span>
                     <i className="fa fa-refresh refresh-icon" onClick={this.getData.bind(this)} aria-hidden="true"></i>
-                    <a  href="https://wa.me/whatsappphonenumber/?text=https://aamin3189.github.io" >
+                    <a  href="https://wa.me/whatsappphonenumber/?text=https://aamin3189.github.io/covid" >
                         <i style={{marginRight:'20px'}} className="fa fa-whatsapp refresh-icon"></i>
                     </a>
                 </div>
