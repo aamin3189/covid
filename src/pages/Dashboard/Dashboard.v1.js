@@ -81,7 +81,7 @@ class DashboardV1 extends Component {
                     </span>
                     <i className="fa fa-refresh refresh-icon" onClick={this.getData.bind(this)} aria-hidden="true"></i>
                     <a  href="https://wa.me/whatsappphonenumber/?text=https://aamin3189.github.io" >
-                        <i style={{marginRight:'20px'}} className="fa fa-share-alt refresh-icon"></i>
+                        <i style={{marginRight:'20px'}} className="fa fa-whatsapp refresh-icon"></i>
                     </a>
                 </div>
                 <div className="top">
