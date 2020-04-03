@@ -15,8 +15,9 @@ const Info = styled.div`
 
 const Container = styled.div`
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-gap: 11px;
+    color: #EB5569;
 `
 
 const TOTAL_NUM_OF_COUNTRIES =198;
@@ -36,9 +37,9 @@ class CountryTile extends Component {
                     <Info>
                         Countries Worldwide
                     </Info>
-                    <Link to="/countries">
+                    {/* <Link to="/countries">
                         View Details
-                    </Link>
+                    </Link> */}
                 </Container>
         );
     }

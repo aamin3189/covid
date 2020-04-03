@@ -69,6 +69,8 @@ class DashboardV1 extends Component {
             })
         })
     }
+
+    
     render() {
         return (
             <div className="db-v1">
@@ -78,7 +80,9 @@ class DashboardV1 extends Component {
                         COVID-19 Situation
                     </span>
                     <i className="fa fa-refresh refresh-icon" onClick={this.getData.bind(this)} aria-hidden="true"></i>
-
+                    <a  href="https://wa.me/whatsappphonenumber/?text=https://aamin3189.github.io" >
+                        <i style={{marginRight:'20px'}} className="fa fa-share-alt refresh-icon"></i>
+                    </a>
                 </div>
                 <div className="top">
                     <div style={{marginTop:15}}>
@@ -187,9 +191,9 @@ class DashboardV1 extends Component {
                 <div className="countries">
                     { this.state.totalStats && this.state.india &&
                         <>
-                            <div className='india flex-box'>
+                            {/* <div className='india flex-box'>
                                 <CountryTile history={this.props.history} country="india" total={this.state.totalStats.countries.length} />
-                            </div>
+                            </div> */}
                             <div className="other-countries"> 
                                 {/* <IndividualCountry 
                                     history={this.props.history} 
@@ -206,9 +210,12 @@ class DashboardV1 extends Component {
                     }
                 </div>
 
+                {this.state.totalStats && 
                 <div className="extra-links">
-                    <Tile history={this.props.history} className="fa fa-globe" title="World Map" to="/map" />
-                </div>
+                    <Tile history={this.props.history} className="fa fa-globe" title={`Countries(${this.state.totalStats.countries.length})`} to="/countries" />
+                    <br/>
+                    <Tile history={this.props.history} className="fa fa-map" title="World Map" to="/map" />
+                </div>}
 
 
                 <div className="precutions">

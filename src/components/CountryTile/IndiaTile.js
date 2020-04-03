@@ -8,7 +8,7 @@ const Inc = styled.div`
     text-align:center;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 22px;
+    grid-gap: 10px;
     a{
         color: #EB5569;
     }
@@ -35,7 +35,10 @@ const Stat = styled.div`
     .num{
         color: ${props => props.color || "#000"};
         font-size:14px;
-        font-weight:400
+        font-weight:400;
+        .primary{
+            display:block;
+        }
     }
     .case{
         color:#7c7c7c;
@@ -75,18 +78,21 @@ class IndiaTile extends Component {
                         <Grid>
                             <Stat color="#EB9B25">
                                 <div className="num">
-                                    {data.statewise[0].confirmed} 
-                                <small>
-                                    &nbsp;&#8593;{data.key_values[0].confirmeddelta}
-                                </small>
-                            </div>
+                                        {data.statewise[0].confirmed} 
+
+                                    <small>
+                                        &nbsp;&#8593;{data.key_values[0].confirmeddelta}
+                                    </small>
+                                </div>
                                 <div className="case"> Cases</div>
                             </Stat>
 
                             <Stat color="#3B8313">
                                 <div className="num">
                                         {data.statewise[0].recovered}
-                                       
+                                        <small>
+                                            &nbsp;&#8593;{data.key_values[0].recovereddelta}
+                                        </small>
                                     </div>
                                 <div className="case">Recovered</div>
                             </Stat>
@@ -99,7 +105,7 @@ class IndiaTile extends Component {
                         </Grid>
 
                         <Link to="/india">
-                            View Details
+                            View Details <i className="fa fa-chevron-right" />
                         </Link>
                     </Inc>
                 }

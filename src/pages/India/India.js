@@ -81,9 +81,6 @@ class India extends Component {
                 </div>
                 <div style={{ fontSize: 20, fontWeight: 400, marginTop: 10 }}>
                   {numberWithCommas(data.statewise[0].confirmed)}
-                  <small>
-                    (&nbsp;&#8593;{numberWithCommas(data.key_values[0].confirmeddelta)})
-                  </small>
                 </div>
               </Head>
             )}
@@ -93,6 +90,9 @@ class India extends Component {
                 <Stat color="#EB9B25">
                   <div className="num">
                     {numberWithCommas(data.statewise[0].active)}
+                    <small>
+                    &nbsp;&#8593;{numberWithCommas(data.key_values[0].confirmeddelta)}
+                  </small>
                   </div>
                   <div className="case">Active Cases</div>
                 </Stat>
