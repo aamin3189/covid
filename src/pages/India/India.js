@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
-import conf from "../../config/config";
-import { Head, Inc, Circle, Grid, Stat } from "../../components/styled/styled";
+import { Head, Inc, Grid, Stat } from "../../components/styled/styled";
 import { Link } from "react-router-dom";
 import { Icon } from "antd-mobile";
 import { numberWithCommas } from "../Countries/Country";
 import Skeleton from "react-loading-skeleton";
-import { getHistoricalDataContry, getIndiaStats } from "../../utils/dataOpsWM";
+import {  getIndiaStats } from "../../utils/dataOpsWM";
 import moment from "moment";
-import TinyLineChart from "../../components/TinyLinechart/TinyLineChart";
 import BarStats from "../../components/charts/BarStats";
 import {Line,LineChart} from 'recharts';
 import StateWise from "../../components/StateWise/StateWise";
@@ -32,9 +29,9 @@ class India extends Component {
     for(let i = 0; i< arr.length; i++){
         newArr.push({
             date: arr[i].date,
-            "Daily Confirmed":parseInt(arr[i].dailyconfirmed),
-            "Daily Death": parseInt(arr[i].dailydeceased),
-            "Daily Recovered": parseInt(arr[i].dailyrecovered)
+            "Confirmed":parseInt(arr[i].dailyconfirmed),
+            "Death": parseInt(arr[i].dailydeceased),
+            "Recovered": parseInt(arr[i].dailyrecovered)
         })
     }
     return newArr;

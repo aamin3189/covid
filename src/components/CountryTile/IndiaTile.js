@@ -40,12 +40,12 @@ const Stat = styled.div`
             display:block;
         }
         small{
-            color: #FFF;
+            /* color: #FFF;
             background-color: ${props => props.color || "#000"};
             border-radius:10px;
             text-align:center;
             padding-right:5px;
-            font-size:12px;
+            font-size:12px; */
         }
     }
     .case{
@@ -112,7 +112,7 @@ class IndiaTile extends Component {
                                 <div className="num">{data.statewise[0].deaths} 
                                     { data.key_values[0].deceaseddelta > 0 &&
                                         <small>
-                                            &#8593;{data.key_values[0].deceaseddelta}
+                                            &nbsp;&#8593;{data.key_values[0].deceaseddelta}
                                         </small>
                                     }
                                 </div>

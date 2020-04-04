@@ -10,6 +10,7 @@ import CountryDetails from "../pages/CountryDetails/CountryDetails";
 import Credits from "../pages/Credits/Credits";
 import WorldMap from "../pages/WorldMap/WorldMap";
 import India from "../pages/India/India";
+import IndiaMap from "../pages/IndiaMap/IndiaMap";
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route path="/credits" component={Credits} />
           <Route path="/map" component={WorldMap} />
           <Route path="/india" component={India} />
+          <Route path="/india-map" component={IndiaMap} />
         </HashRouter>
       </div>
     );

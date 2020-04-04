@@ -44,6 +44,7 @@ export const Stat = styled.div`
           border-radius:10px;
           text-align:center;
           padding-right:5px;
+          font-size:70%
       }
   }
   .case {
