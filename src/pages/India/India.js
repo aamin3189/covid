@@ -89,7 +89,7 @@ class India extends Component {
               <Grid>
                 <Stat color="#EB9B25">
                   <div className="num">
-                    {numberWithCommas(data.statewise[0].active)}
+                    {numberWithCommas(data.statewise[0].active)}{" "}
                     <small>
                     &nbsp;&#8593;{numberWithCommas(data.key_values[0].confirmeddelta)}
                   </small>
@@ -98,19 +98,23 @@ class India extends Component {
                 </Stat>
                 <Stat color="#3B8313">
                   <div className="num">
-                    {numberWithCommas(data.statewise[0].recovered)}
-                    <small>
-                    &nbsp; &#8593;{numberWithCommas(data.key_values[0].recovereddelta)}
-                    </small>
+                    {numberWithCommas(data.statewise[0].recovered)}{" "}
+                    {data.key_values[0].recovereddelta > 0 && 
+                      <small>
+                        &nbsp; &#8593;{numberWithCommas(data.key_values[0].recovereddelta)}
+                      </small>
+                    }
                   </div>
                   <div className="case">Recovered</div>
                 </Stat>
                 <Stat color="#C31112">
                   <div className="num">
                     {numberWithCommas(data.statewise[0].deaths)}{" "}
-                    <small>
-                       &nbsp; &#8593;{numberWithCommas(data.key_values[0].deceaseddelta)}
-                    </small>
+                    { data.key_values[0].deceaseddelta > 0 &&
+                      <small>
+                         &nbsp; &#8593;{numberWithCommas(data.key_values[0].deceaseddelta)}
+                      </small>
+                    }
                   </div>
                   <div className="case">Death</div>
                 </Stat>

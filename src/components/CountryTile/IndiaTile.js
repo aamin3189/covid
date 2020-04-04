@@ -39,6 +39,14 @@ const Stat = styled.div`
         .primary{
             display:block;
         }
+        small{
+            color: #FFF;
+            background-color: ${props => props.color || "#000"};
+            border-radius:10px;
+            text-align:center;
+            padding-right:5px;
+            font-size:12px;
+        }
     }
     .case{
         color:#7c7c7c;
@@ -80,9 +88,11 @@ class IndiaTile extends Component {
                                 <div className="num">
                                         {data.statewise[0].confirmed} 
 
-                                    <small>
-                                        &nbsp;&#8593;{data.key_values[0].confirmeddelta}
-                                    </small>
+                                    { data.key_values[0].confirmeddelta > 0 &&
+                                        <small>
+                                            &nbsp;&#8593;{data.key_values[0].confirmeddelta}
+                                        </small>
+                                    }
                                 </div>
                                 <div className="case"> Cases</div>
                             </Stat>
@@ -90,16 +100,22 @@ class IndiaTile extends Component {
                             <Stat color="#3B8313">
                                 <div className="num">
                                         {data.statewise[0].recovered}
-                                        <small>
-                                            &nbsp;&#8593;{data.key_values[0].recovereddelta}
-                                        </small>
+                                        {data.key_values[0].recovereddelta > 0 &&
+                                            <small>
+                                                &nbsp;&#8593;{data.key_values[0].recovereddelta}
+                                            </small>
+                                        }
                                     </div>
                                 <div className="case">Recovered</div>
                             </Stat>
                             <Stat color="#C31112">
-                                <div className="num">{data.statewise[0].deaths} <small>
-                                &#8593;{data.key_values[0].deceaseddelta}
-                                        </small></div>
+                                <div className="num">{data.statewise[0].deaths} 
+                                    { data.key_values[0].deceaseddelta > 0 &&
+                                        <small>
+                                            &#8593;{data.key_values[0].deceaseddelta}
+                                        </small>
+                                    }
+                                </div>
                                 <div className="case">Death</div>
                             </Stat>
                         </Grid>

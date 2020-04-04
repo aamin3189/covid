@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Accordion, List } from 'antd-mobile';
 import Axios from 'axios';
 import styled from 'styled-components';
+import './statewise.scss';
+
 const Summary = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -16,16 +17,43 @@ const Summary = styled.div`
         font-weight:500;
     }
     div:nth-child(2){
-        color: #EB9B25
+        color: #EB9B25;
+        .delta{
+            color: #FFF;
+            background-color: #EB9B25;
+            border-radius:10px;
+            text-align:center;
+            padding-right:5px;
+            font-size:12px;
+            margin-left:5px;
+        }
     }
     div:nth-child(3){
         color: #3B830D;
-        text-align:center
+        text-align:center;
+        .delta{
+            color: #FFF;
+            background-color: #3B830D;
+            border-radius:10px;
+            text-align:center;
+            padding-right:5px;
+            font-size:12px;
+            margin-left:5px;
+        }
     }
     div:nth-child(4){
         color: #C31111;
         text-align:right;
         margin-right: 12px;
+        .delta{
+            color: #FFF;
+            background-color: #C31111;
+            border-radius:10px;
+            text-align:center;
+            padding-right:5px;
+            font-size:12px;
+            margin-left:5px;
+        }
     }
 `
 
@@ -113,7 +141,7 @@ class StateWise extends Component {
                                                 {st.active} 
                                                 {
                                                     st.delta.active > 0 &&
-                                                    <span>
+                                                    <span className="delta">
                                                         &nbsp;&#8593;{st.delta.active}
                                                     </span>
                                                 }
@@ -122,7 +150,7 @@ class StateWise extends Component {
                                                 {st.recovered}
                                                 {
                                                     st.delta.recovered > 0 &&
-                                                    <span>
+                                                    <span className="delta">
                                                         &#8593; {st.delta.recovered}
                                                     </span>
                                                 }
@@ -131,7 +159,7 @@ class StateWise extends Component {
                                                 {st.deaths}
                                                 {
                                                     st.delta.deaths > 0 &&
-                                                    <span>
+                                                    <span className="delta"> 
                                                         &#8593; {st.delta.deaths}
                                                     </span>
                                                 }

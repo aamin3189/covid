@@ -38,6 +38,13 @@ export const Stat = styled.div`
     font-size: 18px;
     font-weight: 500;
     margin-bottom:10px;
+    small{
+          color: #FFF;
+          background-color: ${props => props.color || "#000"};
+          border-radius:10px;
+          text-align:center;
+          padding-right:5px;
+      }
   }
   .case {
     color: #7c7c7c;
