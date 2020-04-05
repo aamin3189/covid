@@ -88,9 +88,9 @@ class IndiaTile extends Component {
                                 <div className="num">
                                         {data.statewise[0].confirmed} 
 
-                                    { data.key_values[0].confirmeddelta > 0 &&
+                                    { data.statewise[0].deltaconfirmed > 0 &&
                                         <small>
-                                            &nbsp;&#8593;{data.key_values[0].confirmeddelta}
+                                            &nbsp;&#8593;{data.statewise[0].deltaconfirmed}
                                         </small>
                                     }
                                 </div>
@@ -100,9 +100,9 @@ class IndiaTile extends Component {
                             <Stat color="#3B8313">
                                 <div className="num">
                                         {data.statewise[0].recovered}
-                                        {data.key_values[0].recovereddelta > 0 &&
+                                        {data.statewise[0].deltarecovered > 0 &&
                                             <small>
-                                                &nbsp;&#8593;{data.key_values[0].recovereddelta}
+                                                &nbsp;&#8593;{data.statewise[0].deltarecovered}
                                             </small>
                                         }
                                     </div>
@@ -110,9 +110,9 @@ class IndiaTile extends Component {
                             </Stat>
                             <Stat color="#C31112">
                                 <div className="num">{data.statewise[0].deaths} 
-                                    { data.key_values[0].deceaseddelta > 0 &&
+                                    { data.statewise[0].deltadeaths > 0 &&
                                         <small>
-                                            &nbsp;&#8593;{data.key_values[0].deceaseddelta}
+                                            &nbsp;&#8593;{data.statewise[0].deltadeaths}
                                         </small>
                                     }
                                 </div>

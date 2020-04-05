@@ -88,7 +88,7 @@ class India extends Component {
                   <div className="num">
                     {numberWithCommas(data.statewise[0].active)}{" "}
                     <small>
-                    &nbsp;&#8593;{numberWithCommas(data.key_values[0].confirmeddelta)}
+                    &nbsp;&#8593;{numberWithCommas(data.statewise[0].deltaconfirmed)}
                   </small>
                   </div>
                   <div className="case">Active Cases</div>
@@ -96,9 +96,9 @@ class India extends Component {
                 <Stat color="#3B8313">
                   <div className="num">
                     {numberWithCommas(data.statewise[0].recovered)}{" "}
-                    {data.key_values[0].recovereddelta > 0 && 
+                    {data.statewise[0].deltarecovered > 0 && 
                       <small>
-                        &nbsp; &#8593;{numberWithCommas(data.key_values[0].recovereddelta)}
+                        &nbsp; &#8593;{numberWithCommas(data.statewise[0].deltarecovered)}
                       </small>
                     }
                   </div>
@@ -107,9 +107,9 @@ class India extends Component {
                 <Stat color="#C31112">
                   <div className="num">
                     {numberWithCommas(data.statewise[0].deaths)}{" "}
-                    { data.key_values[0].deceaseddelta > 0 &&
+                    { data.statewise[0].deltadeaths > 0 &&
                       <small>
-                         &nbsp; &#8593;{numberWithCommas(data.key_values[0].deceaseddelta)}
+                         &nbsp; &#8593;{numberWithCommas(data.statewise[0].deltadeaths)}
                       </small>
                     }
                   </div>

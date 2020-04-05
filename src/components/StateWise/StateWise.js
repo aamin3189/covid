@@ -140,27 +140,27 @@ class StateWise extends Component {
                                             <div>
                                                 {st.active} 
                                                 {
-                                                    st.delta.active > 0 &&
+                                                    st.deltaconfirmed > 0 &&
                                                     <span className="delta">
-                                                        &nbsp;&#8593;{st.delta.active}
+                                                        &nbsp;&#8593;{st.deltaconfirmed}
                                                     </span>
                                                 }
                                             </div>
                                             <div>
                                                 {st.recovered}
                                                 {
-                                                    st.delta.recovered > 0 &&
+                                                    st.deltarecovered > 0 &&
                                                     <span className="delta">
-                                                        &#8593; {st.delta.recovered}
+                                                        &#8593; {st.deltarecovered}
                                                     </span>
                                                 }
                                             </div>
                                             <div>
                                                 {st.deaths}
                                                 {
-                                                    st.delta.deaths > 0 &&
+                                                    st.deltadeaths > 0 &&
                                                     <span className="delta"> 
-                                                        &#8593; {st.delta.deaths}
+                                                        &#8593; {st.deltadeaths}
                                                     </span>
                                                 }
                                             </div>
