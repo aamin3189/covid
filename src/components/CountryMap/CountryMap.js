@@ -4,6 +4,8 @@ import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
 import proj4 from "proj4";
 import mapDataIE from "@highcharts/map-collection/countries/in/in-all.geo.json";
+import { getIndiaStats } from '../../utils/dataOpsWM';
+import _ from 'underscore';
 
 highchartsMap(Highcharts); // Initialize the map module
 
@@ -90,14 +92,99 @@ const mapOptions = {
 
 
 class CountryMap extends Component {
+    state = {
+        mapOptions: null
+    }
+
+    async componentDidMount(){
+        getIndiaStats().then(resp=>{
+            this.generateData(resp.statewise)
+        })
+    }
+
+
+    generateData(stateData){
+        let arr = []
+        // for(let i = 1; i < stateData.length; i++){
+        //     arr.push(
+        //         [
+        //             `in-${stateData[i].statecode.toLowerCase()}`,
+        //             stateData[i].confirmed
+        //         ]
+        //     )
+        // }
+
+        for(let i =0 ;i < data.length; i++){
+            data[i][1] = parseInt(data[i][1])
+            let state = data[i][0].split("-");
+            state = state[1].toUpperCase();
+
+            const inx = _.findIndex(stateData,(x)=>{
+                return x.statecode == state
+            })
+
+            if(inx > -1){
+                data[i][1] = parseInt(stateData[inx].confirmed)
+            }
+        }
+
+        let max = _.max(data,x=>x[1])
+        let min = _.min(data,x=>x[1])
+
+        let mapOptions = {
+    
+            chart: {
+                map: 'countries/in/in-all'
+            },
+        
+            title: {
+                text:"India Statewise"
+            },
+        
+            mapNavigation: {
+                enabled: true,
+            },
+        
+            colorAxis: {
+                min: min[1],
+                max: max[1]
+            },
+        
+            series: [
+                {
+                    data: data,
+                    mapData: mapDataIE,
+                    name: 'Cases',
+                    states: {
+                        hover: {
+                            color: '#BADA55'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false,
+                        format: '{point.name}'
+                    }
+                }
+            ]
+        
+        };
+        this.setState({
+            mapOptions: mapOptions
+        })
+    }
+
+
     render() {
         return (
             <div>
-                <HighchartsReact
-                    constructorType={"mapChart"}
-                    highcharts={Highcharts}
-                    options={mapOptions}
-                />
+                {
+                    this.state.mapOptions &&
+                    <HighchartsReact
+                        constructorType={"mapChart"}
+                        highcharts={Highcharts}
+                        options={this.state.mapOptions}
+                    />
+                }
             </div>
         );
     }

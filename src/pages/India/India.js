@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Head, Inc, Grid, Stat } from "../../components/styled/styled";
+import { Head, Inc, Grid, Stat,MapButton } from "../../components/styled/styled";
 import { Link } from "react-router-dom";
 import { Icon } from "antd-mobile";
 import { numberWithCommas } from "../Countries/Country";
@@ -9,6 +9,7 @@ import moment from "moment";
 import BarStats from "../../components/charts/BarStats";
 import {Line,LineChart} from 'recharts';
 import StateWise from "../../components/StateWise/StateWise";
+
 
 class India extends Component {
   state = {
@@ -37,6 +38,13 @@ class India extends Component {
     return newArr;
   }
 
+  openIndiaMap(){
+    this.props.history.push({
+      pathname: '/india-map',
+      state: this.state.data
+    })
+  }
+
 
   render() {
 
@@ -51,6 +59,9 @@ class India extends Component {
                 <Icon size="md" type="left" />
                 Back
               </Link>
+              <MapButton onClick={this.openIndiaMap.bind(this)}>
+                  Map View <i className="fa fa-map-o" />
+              </MapButton>
             </div>
           </div>
         </div>
@@ -86,9 +97,9 @@ class India extends Component {
               <Grid>
                 <Stat color="#EB9B25">
                   <div className="num">
-                    {numberWithCommas(data.statewise[0].active)}{" "}
+                    {(data.statewise[0].active)}{" "}
                     <small>
-                    &nbsp;&#8593;{numberWithCommas(data.statewise[0].deltaconfirmed)}
+                    &nbsp;&#8593;{(data.statewise[0].deltaconfirmed)}
                   </small>
                   </div>
                   <div className="case">Active Cases</div>
@@ -155,9 +166,11 @@ class India extends Component {
 
             {this.state.data &&
                 <div style={{textAlign:'left'}}>
-                    <span className="header" style={{color:'#7c7c7c'}}> 
-                    Statewise Data
-                    </span>
+                    <div style={{marginBottom:'20px'}}>
+                      <span className="header" style={{color:'#7c7c7c'}}> 
+                        Statewise Data
+                      </span>
+                    </div>
                     <StateWise agregatedData={this.state.data.statewise} />
                 </div>
             }
@@ -200,9 +213,9 @@ class India extends Component {
                   refStroke="#7c7c7c"
                   brushStroke="#7c7c7c"
                   keys={[
-                    { name: "Daily Confirmed", color: "#EB9B1B" },
-                    { name: "Daily Death", color: "#C31111" },
-                    { name: "Daily Recovered", color: "#3B830D" }
+                    { name: "Confirmed", color: "#EB9B1B" },
+                    { name: "Death", color: "#C31111" },
+                    { name: "Recovered", color: "#3B830D" }
                   ]}
                   data={this.convertData(this.state.data.cases_time_series)}
                 />

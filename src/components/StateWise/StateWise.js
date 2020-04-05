@@ -160,7 +160,7 @@ class StateWise extends Component {
                                                 {
                                                     st.deltadeaths > 0 &&
                                                     <span className="delta"> 
-                                                        &#8593; {st.deltadeaths}
+                                                        &nbsp;&#8593;{st.deltadeaths}
                                                     </span>
                                                 }
                                             </div>

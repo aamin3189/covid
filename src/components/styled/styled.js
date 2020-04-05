@@ -44,7 +44,7 @@ export const Stat = styled.div`
           border-radius:10px;
           text-align:center;
           padding-right:5px;
-          font-size:70%
+          font-size:12px;
       }
   }
   .case {
@@ -52,3 +52,10 @@ export const Stat = styled.div`
     font-size: 10px;
   }
 `;
+
+export const MapButton = styled.span`
+  float: right;
+  /* color: #EB5569; */
+  padding:4px;
+  border-radius:10px;
+`

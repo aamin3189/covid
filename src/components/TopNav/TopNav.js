@@ -12,7 +12,7 @@ class TopNav extends Component {
         <div className="controls">
           <div className="search-control">
             <div className="top-controls">
-              <Link to="/" className="back">
+              <Link to={this.props.to} className="back">
                 <Icon size="md" type="left" />
                 Back
               </Link>

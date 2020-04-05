@@ -6,7 +6,7 @@ class IndiaMap extends Component {
     render() {
         return (
             <div>
-                <TopNav />
+                <TopNav to={"/india"} />
                 <div style={{marginTop:'50px'}}>
                     <CountryMap />
                 </div>

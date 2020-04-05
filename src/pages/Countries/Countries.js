@@ -7,6 +7,7 @@ import _ from 'underscore';
 import CommonModal from '../../components/Modal/CommonModal';
 import Axios from 'axios';
 import conf from '../../config/config';
+import Skeleton from 'react-loading-skeleton';
 
 
 class Countries extends Component {
@@ -16,6 +17,7 @@ class Countries extends Component {
         selected: "Total"
     }
     componentDidMount(){
+        window.scrollTo(0,0);
         this.setState({
             countries: JSON.parse(localStorage.getItem("countries"))
         })
@@ -64,7 +66,8 @@ class Countries extends Component {
         Axios.get(`${conf.api}/countries?sort=${whichSort}`).then((resp)=>{
             this.setState({
                 countries: resp.data
-            })
+            });
+            window.scrollTo(0,0);   
         })
     }
 
@@ -97,17 +100,19 @@ class Countries extends Component {
                 </div>
                 <div className="list">
                     {
-                        this.state.countries.length > 0 &&
+                        this.state.countries.length > 0 ?
                         this.state.countries.map((c,i)=>
                             <Country 
                                 key={i}
                                 countryObj={c}
                             />
-                            // <IndividualCountry 
-                            //     history={this.props.history}
-                            //     countryObj={c}
-                            // />
                         )
+                        :
+                        <Skeleton 
+                            height={10}
+                            width={window.screen.width}
+                            count={20}
+                        />
                     }
                 </div>
                 <CommonModal 
