@@ -151,7 +151,7 @@ class StateWise extends Component {
                                                 {
                                                     st.deltarecovered > 0 &&
                                                     <span className="delta">
-                                                        &#8593; {st.deltarecovered}
+                                                        &nbsp;&#8593;{st.deltarecovered}
                                                     </span>
                                                 }
                                             </div>

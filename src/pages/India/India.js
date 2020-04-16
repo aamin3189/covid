@@ -59,9 +59,9 @@ class India extends Component {
                 <Icon size="md" type="left" />
                 Back
               </Link>
-              <MapButton onClick={this.openIndiaMap.bind(this)}>
+              {/* <MapButton onClick={this.openIndiaMap.bind(this)}>
                   Map View <i className="fa fa-map-o" />
-              </MapButton>
+              </MapButton> */}
             </div>
           </div>
         </div>
@@ -98,9 +98,11 @@ class India extends Component {
                 <Stat color="#EB9B25">
                   <div className="num">
                     {(data.statewise[0].active)}{" "}
-                    <small>
-                    &nbsp;&#8593;{(data.statewise[0].deltaconfirmed)}
-                  </small>
+                    { data.statewise[0].deltaconfirmed > 0 &&
+                      <small>
+                        &nbsp;&#8593;{(data.statewise[0].deltaconfirmed)}
+                      </small>
+                    }
                   </div>
                   <div className="case">Active Cases</div>
                 </Stat>

@@ -7,6 +7,10 @@ import mapDataIE from "@highcharts/map-collection/countries/in/in-all.geo.json";
 import { getIndiaStats } from '../../utils/dataOpsWM';
 import _ from 'underscore';
 
+// "highcharts-react-official": "3.0.0",
+//"@highcharts/map-collection": "1.1.3",
+
+
 highchartsMap(Highcharts); // Initialize the map module
 
 if (typeof window !== "undefined") {
