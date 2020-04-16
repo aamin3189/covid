@@ -8,7 +8,7 @@ class IndiaMap extends Component {
             <div>
                 <TopNav to={"/india"} />
                 <div style={{marginTop:'50px'}}>
-                    <CountryMap />
+                    {/* <CountryMap /> */}
                 </div>
             </div>
         );
