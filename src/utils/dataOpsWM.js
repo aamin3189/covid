@@ -14,7 +14,7 @@ const getDetailedStats = async () => {
       critical: 0
     };
 
-    const data = await Axios.get(`${conf.api}/countries?sort=cases`).then(resp => {
+    const data = await Axios.get(`${conf.api}/v2/countries?sort=cases`).then(resp => {
       let countries = resp.data;
       for (let i = 0; i < countries.length; i++) {
         totalStats.cases += countries[i].cases;
@@ -38,7 +38,7 @@ const getDetailedStats = async () => {
   };
 
 const  getTotalStats = async () => {
-  const data = await Axios.get(`${conf.api}/all`).then(resp => {
+  const data = await Axios.get(`${conf.api}/v2/all`).then(resp => {
     const apiData = resp.data;
     //format data
     let stats = [
