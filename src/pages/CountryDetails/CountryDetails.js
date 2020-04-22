@@ -21,7 +21,7 @@ class CountryDetails extends Component {
     }
   async componentDidMount() {
     const data = await axios
-      .get(conf.api + "/countries/" + this.props.match.params.countryName)
+      .get(conf.api + "/v2/countries/" + this.props.match.params.countryName)
       .then(r => r.data);
     this.setState({
       data: data
