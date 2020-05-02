@@ -1,6 +1,7 @@
 import React from 'react';
 import './country.scss';
 import { Link } from 'react-router-dom';
+import UpArrow from '../../components/UpArrow/UpArrow';
 // const images = require.context('./flags', true);
 
 export const numberWithCommas = (x) => {
@@ -23,7 +24,8 @@ function Country(props) {
                         {numberWithCommas(props.countryObj.cases)} 
                         {props.countryObj.todayCases > 0 &&
                         <span>
-                            (&#8593;{numberWithCommas(props.countryObj.todayCases)})
+                            <UpArrow color="#7c7c7c" size={10} /> &nbsp;
+                            {numberWithCommas(props.countryObj.todayCases)}
                         </span>}
                     </div>
                 </div>
@@ -39,8 +41,10 @@ function Country(props) {
                         }
                         {
                             props.countryObj.todayDeaths > 0 &&
+                            
                             <sapn> 
-                                (&#8593;{numberWithCommas(props.countryObj.todayDeaths)})
+                                    &nbsp;<UpArrow color="#C31111" size={10} />
+                                    {numberWithCommas(props.countryObj.todayDeaths)}    
                             </sapn>
                         }
                     </span>   

@@ -35,12 +35,12 @@ export const Grid = styled.div`
 export const Stat = styled.div`
   .num {
     color: ${props => props.color || "#000"};
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     margin-bottom:10px;
     small{
-          color: #FFF;
-          background-color: ${props => props.color || "#000"};
+          /* color: #FFF; */
+          /* background-color: ${props => props.color || "#000"}; */
           border-radius:10px;
           text-align:center;
           padding-right:5px;

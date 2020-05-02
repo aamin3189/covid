@@ -16,16 +16,17 @@ function Bulet(props) {
     return (
         <div style={{marginBottom: '1em'}}>
             <div style={{marginBottom:'4px'}}>
-                <Circle color={props.color} />
+                {/* <Circle color={props.color} /> */}
                 <div style={{fontWeight:300,fontSize:'12px'}}>
                     {props.title} 
                 </div>
             </div>
-            <div style={{marginLeft:'20px'}}>
+            {/* style={{marginLeft:'20px'}} */}
+            <div >
                 <Link to={props.linkTo} style={{fontWeight:400,fontSize:'20px',color: props.color}}>
                     {props.mainNumber} 
                 </Link>
-            <div style={{fontSize:'10px',color:"#7c7c7c"}}>{props.count}</div>
+            <div style={{fontSize:'12px',color:"#7c7c7c"}}>{props.count}</div>
             </div>
         </div>
     );

@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import indianFlag from './indianFlag.png';
+import { numberWithCommas } from '../../pages/Countries/Country';
+import UpArrow from '../UpArrow/UpArrow';
 
 const Inc = styled.div`
     text-align:center;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
     grid-gap: 10px;
     a{
         color: #EB5569;
@@ -86,33 +88,38 @@ class IndiaTile extends Component {
                         <Grid>
                             <Stat color="#EB9B25">
                                 <div className="num">
-                                        {data.statewise[0].confirmed} 
-
-                                    { data.statewise[0].deltaconfirmed > 0 &&
-                                        <small>
-                                            &nbsp;&#8593;{data.statewise[0].deltaconfirmed}
-                                        </small>
-                                    }
+                                        {
+                                            numberWithCommas(data.statewise[0].confirmed)
+                                        } 
+                                        <br/>
+                                        { data.statewise[0].deltaconfirmed > 0 &&
+                                            <small>
+                                                <UpArrow size={10} color="#EB9B25" />
+                                                {numberWithCommas(data.statewise[0].deltaconfirmed)}
+                                            </small>
+                                        }
                                 </div>
                                 <div className="case"> Cases</div>
                             </Stat>
 
                             <Stat color="#3B8313">
                                 <div className="num">
-                                        {data.statewise[0].recovered}
+                                        {numberWithCommas(data.statewise[0].recovered)}
+                                        <br/>
                                         {data.statewise[0].deltarecovered > 0 &&
                                             <small>
-                                                &nbsp;&#8593;{data.statewise[0].deltarecovered}
+                                               <UpArrow size={10} color="#3B8313" />{numberWithCommas(data.statewise[0].deltarecovered)}
                                             </small>
                                         }
                                     </div>
                                 <div className="case">Recovered</div>
                             </Stat>
                             <Stat color="#C31112">
-                                <div className="num">{data.statewise[0].deaths} 
+                                <div className="num">{numberWithCommas(data.statewise[0].deaths)} 
+                                    <br/>
                                     { data.statewise[0].deltadeaths > 0 &&
                                         <small>
-                                            &nbsp;&#8593;{data.statewise[0].deltadeaths}
+                                            <UpArrow size={10} color="#C31112" />{numberWithCommas(data.statewise[0].deltadeaths)}
                                         </small>
                                     }
                                 </div>

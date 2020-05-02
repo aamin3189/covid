@@ -9,6 +9,7 @@ import moment from "moment";
 import BarStats from "../../components/charts/BarStats";
 import {Line,LineChart} from 'recharts';
 import StateWise from "../../components/StateWise/StateWise";
+import UpArrow from "../../components/UpArrow/UpArrow";
 
 
 class India extends Component {
@@ -97,10 +98,11 @@ class India extends Component {
               <Grid>
                 <Stat color="#EB9B25">
                   <div className="num">
-                    {(data.statewise[0].active)}{" "}
+                    {numberWithCommas(data.statewise[0].active)}{" "}
                     { data.statewise[0].deltaconfirmed > 0 &&
                       <small>
-                        &nbsp;&#8593;{(data.statewise[0].deltaconfirmed)}
+                        <UpArrow color="#EB9B25" size={10} />
+                        {(data.statewise[0].deltaconfirmed)}
                       </small>
                     }
                   </div>
@@ -111,7 +113,8 @@ class India extends Component {
                     {numberWithCommas(data.statewise[0].recovered)}{" "}
                     {data.statewise[0].deltarecovered > 0 && 
                       <small>
-                        &nbsp; &#8593;{numberWithCommas(data.statewise[0].deltarecovered)}
+                        <UpArrow color="#3B8313" size={10} />
+                        {numberWithCommas(data.statewise[0].deltarecovered)}
                       </small>
                     }
                   </div>
@@ -122,44 +125,15 @@ class India extends Component {
                     {numberWithCommas(data.statewise[0].deaths)}{" "}
                     { data.statewise[0].deltadeaths > 0 &&
                       <small>
-                         &nbsp; &#8593;{numberWithCommas(data.statewise[0].deltadeaths)}
+                        <UpArrow color="#C31112" size={10} />
+                        {numberWithCommas(data.statewise[0].deltadeaths)}
                       </small>
                     }
                   </div>
                   <div className="case">Death</div>
                 </Stat>
 
-                {/* <Stat color="#EB5569">
-                  <div className="num">
-                    {numberWithCommas(this.state.data.critical)}
-                    <small>
-                      {" "}
-                      &nbsp;
-                      {(
-                        (this.state.data.critical / this.state.data.cases) *
-                        100
-                      ).toFixed(0)}
-                      %
-                    </small>
-                  </div>
-                  <div className="case">Critical</div>
-                </Stat>
-                <Stat color="#3B8313">
-                  <div className="num">
-                    {(
-                      (this.state.data.deaths / this.state.data.cases) *
-                      100
-                    ).toFixed(0)}
-                    %
-                  </div>
-                  <div className="case">Mortality Rate</div>
-                </Stat>
-                <Stat color="#C31112">
-                  <div className="num">
-                    {this.state.data.deathsPerOneMillion}
-                  </div>
-                  <div className="case">Death Per 1M</div>
-                </Stat> */}
+              
               </Grid>
             )}
 
@@ -195,9 +169,9 @@ class India extends Component {
 
 
                 <LineChart height={100} width={window.screen.width - 50}  data={this.state.data.cases_time_series}>
-                    <Line type='monotone' dataKey='totaldeceased' stroke='#C31111' dot={null} strokeWidth={2} />
-                    <Line type='monotone' dataKey='totalconfirmed' stroke='#EB9B1B' dot={null} strokeWidth={2} />
-                    <Line type='monotone' dataKey='totalrecovered' stroke='#3B830D' dot={null} strokeWidth={2} />
+                    <Line type='monotone' dataKey='dailydeceased' stroke='#C31111' dot={null} strokeWidth={2} />
+                    <Line type='monotone' dataKey='dailyconfirmed' stroke='#EB9B1B' dot={null} strokeWidth={2} />
+                    <Line type='monotone' dataKey='dailyrecovered' stroke='#3B830D' dot={null} strokeWidth={2} />
                 </LineChart>
                 </>
               ) : (

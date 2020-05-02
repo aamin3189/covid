@@ -11,6 +11,7 @@ import Skeleton from "react-loading-skeleton";
 import { Link } from 'react-router-dom';
 import Tile from '../../components/Tile/Tile';
 import IndiaTile from '../../components/CountryTile/IndiaTile';
+import UpArrow from '../../components/UpArrow/UpArrow';
 
 class DashboardV1 extends Component {
 
@@ -93,7 +94,7 @@ class DashboardV1 extends Component {
                                 mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
                                 count={
                                     <span>
-                                        &#8593;{`${this.numberWithCommas(this.state.totalStats.totalStats.newCases)} New`}
+                                        <UpArrow size={10} color="#7C7C7C" /> {`${this.numberWithCommas(this.state.totalStats.totalStats.newCases)} New`}
                                     </span>
                                 }
                             />
@@ -127,7 +128,7 @@ class DashboardV1 extends Component {
                                 mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.deaths)}
                                 count={
                                     <span>
-                                         &#8593;{`${this.numberWithCommas(this.state.totalStats.totalStats.newDeaths)} New`}
+                                        <UpArrow size={10} color="#7C7C7C" />{`${this.numberWithCommas(this.state.totalStats.totalStats.newDeaths)} New`}
                                     </span>
                                 }
                             />
@@ -170,11 +171,11 @@ class DashboardV1 extends Component {
                             <span className="header">
                                 Timeline :
                                     {
-                                        moment(this.state.historicalData[0].name).format('MMM Do YYYY')
+                                        moment(this.state.historicalData[0].name).format('MMM DD')
                                     }
                                     -
                                     {
-                                        moment(this.state.historicalData[this.state.historicalData.length-1].name).format('MMM Do YYYY')
+                                        moment(this.state.historicalData[this.state.historicalData.length-1].name).format('MMM DD')
                                     }
                             </span>
                             
