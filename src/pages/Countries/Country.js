@@ -21,10 +21,10 @@ function Country(props) {
                         {props.countryObj.country}
                     </div>
                     <div className="case">
-                        {numberWithCommas(props.countryObj.cases)} 
+                        {numberWithCommas(props.countryObj.cases)} &nbsp;
                         {props.countryObj.todayCases > 0 &&
                         <span>
-                            <UpArrow color="#7c7c7c" size={10} /> &nbsp;
+                            <UpArrow color="#7c7c7c" size={10} />
                             {numberWithCommas(props.countryObj.todayCases)}
                         </span>}
                     </div>

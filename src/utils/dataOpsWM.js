@@ -67,6 +67,13 @@ const  getTotalStats = async () => {
 };
 
 
+const getZones = async () => {
+  const data = await Axios.get("https://api.covid19india.org/zones.json").then(resp=>{
+    return resp.data.zones
+  })
+  return data;
+}
+
 
 const historicalData = async () => {
   const data  = await Axios.get("https://corona.lmao.ninja/v2/historical").then((resp)=>{
@@ -141,5 +148,6 @@ export {
   getTotalStats,
   historicalData,
   getHistoricalDataContry,
-  getIndiaStats
+  getIndiaStats,
+  getZones
 }

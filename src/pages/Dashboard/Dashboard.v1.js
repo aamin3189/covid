@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './dashboard.v1.scss';
 import Bulet from '../../components/Bulet/Bulet';
-import { getTotalStats,historicalData,getDetailedStats,getIndiaStats } from '../../utils/dataOpsWM';
+import { getTotalStats,historicalData,getDetailedStats,getIndiaStats,getZones } from '../../utils/dataOpsWM';
 import NDonut from '../../components/charts/Donut';
 import TinyLineChart from '../../components/TinyLinechart/TinyLineChart';
 import CountryTile from '../../components/CountryTile/CountryTile';
@@ -9,9 +9,12 @@ import IndividualCountry from '../../components/CountryTile/IndividualCountry';
 import moment from 'moment';
 import Skeleton from "react-loading-skeleton";
 import { Link } from 'react-router-dom';
-import Tile from '../../components/Tile/Tile';
+import Tile, {EventTile} from '../../components/Tile/Tile';
 import IndiaTile from '../../components/CountryTile/IndiaTile';
 import UpArrow from '../../components/UpArrow/UpArrow';
+import _ from 'underscore';
+import Axios from 'axios';
+import SeacrhLocation from './SeacrhLocation';
 
 class DashboardV1 extends Component {
 
@@ -20,7 +23,8 @@ class DashboardV1 extends Component {
         totalStats: null,
         loading: true,
         historicalData: null,
-        india: null
+        india: null,
+        zones: null
     };
 
     componentDidMount(){
@@ -71,6 +75,19 @@ class DashboardV1 extends Component {
         })
     }
 
+    // Get the zones
+    async getDistrictZones(){
+        getZones().then(resp=>{
+            this.setState({
+                zones: resp
+            })
+        })
+    }
+
+    getLocation(){
+        
+    }
+
     
     render() {
         return (
@@ -94,7 +111,7 @@ class DashboardV1 extends Component {
                                 mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
                                 count={
                                     <span>
-                                        <UpArrow size={10} color="#7C7C7C" /> {`${this.numberWithCommas(this.state.totalStats.totalStats.newCases)} New`}
+                                        <UpArrow size={10} color="#7C7C7C" />{`${this.numberWithCommas(this.state.totalStats.totalStats.newCases)} New`}
                                     </span>
                                 }
                             />
@@ -216,6 +233,13 @@ class DashboardV1 extends Component {
                     <Tile history={this.props.history} className="fa fa-globe" title={`Countries(${this.state.totalStats.countries.length})`} to="/countries" />
                     <br/>
                     <Tile history={this.props.history} className="fa fa-map" title="World Map" to="/map" />
+                    <br/>
+                    {/* <EventTile 
+                        onClick={()=>this.setState({showModal: true})}
+                        history={this.props.history} 
+                        className="fa fa-question-circle" 
+                        title="My Corona Zone"  
+                    /> */}
                 </div>}
 
 
@@ -230,6 +254,13 @@ class DashboardV1 extends Component {
                         Credits >
                     </Link>
                 </div>
+
+                {
+                    this.state.showModal && 
+                    <SeacrhLocation />
+                }
+
+                
             </div>
         );
     }

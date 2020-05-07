@@ -6,10 +6,6 @@ const RadioItem = Radio.RadioItem;
 
 class CommonModal extends Component {
 
-
-  state = {
-      sorts : ["Total","Active Case","Deaths","New Deaths","New Cases","Death per 1 Million","Recovered"],
-  }
   render() {
     return (
       <div>
@@ -20,9 +16,9 @@ class CommonModal extends Component {
           animationType="slide-up"
           afterClose={this.props.afterClose}
         >
-          <List renderHeader={() => <div>Sort By</div>} className="popup-list">
+          <List renderHeader={() => <div>{this.props.header}</div>} className="popup-list">
             {
-                this.state.sorts.map((itx,index)=>(
+                this.props.data.map((itx,index)=>(
                     // <List.Item key={index}>
                         <RadioItem key={itx} checked={this.props.selected === itx} onChange={() => this.props.selectSort(itx)}>
                             {itx}

@@ -23,10 +23,10 @@ function Bulet(props) {
             </div>
             {/* style={{marginLeft:'20px'}} */}
             <div >
-                <Link to={props.linkTo} style={{fontWeight:400,fontSize:'20px',color: props.color}}>
+                <Link to={""} style={{fontWeight:400,fontSize:'20px',color: props.color}}>
                     {props.mainNumber} 
                 </Link>
-            <div style={{fontSize:'12px',color:"#7c7c7c"}}>{props.count}</div>
+            <div style={{fontSize:'12px',color:"#7c7c7c",    marginTop: '5px'}}>{props.count}</div>
             </div>
         </div>
     );
@@ -35,9 +35,9 @@ function Bulet(props) {
 Bulet.propTypes = {
     color: PropTypes.string,
     title: PropTypes.string,
-    newCase: PropTypes.number,
+    newCase: PropTypes.string,
     linkTo: PropTypes.string,
-    count: PropTypes.string
+    count: PropTypes.any
 };
 
 

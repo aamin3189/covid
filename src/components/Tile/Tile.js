@@ -9,7 +9,7 @@ const Tle = styled.div`
         float:right
     }
     a{
-        color: #E57180;
+        color: #666;
     }
 `
 
@@ -23,6 +23,17 @@ function Tile(props) {
         </Link>
       </Tle>
     );
+}
+
+export function EventTile(props) {
+  return (
+    <Tle onClick={props.onClick}>
+      <Link to={""}>
+        <i className={props.className}></i> {props.title}
+        <i className="fa fa-chevron-right"></i>
+      </Link>
+    </Tle>
+  );
 }
 
 export default Tile;

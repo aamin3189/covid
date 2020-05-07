@@ -123,6 +123,8 @@ class Countries extends Component {
                     afterClose={()=>{
                         this.sortData(this.state.selected)
                     }}
+                    header={"Sort By"}
+                    data={["Total","Active Case","Deaths","New Deaths","New Cases","Death per 1 Million","Recovered"]}
                     selectSort={(e)=>this.setState({selected:e})}
                     selected={this.state.selected}
                 />

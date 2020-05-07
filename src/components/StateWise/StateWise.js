@@ -25,7 +25,7 @@ const Summary = styled.div`
             text-align:center;
             padding-right:5px;
             font-size:12px;
-            margin-left:5px;
+            /* margin-left:5px; */
         }
     }
     div:nth-child(3){
@@ -38,7 +38,7 @@ const Summary = styled.div`
             text-align:center;
             padding-right:5px;
             font-size:12px;
-            margin-left:5px;
+            /* margin-left:5px; */
         }
     }
     div:nth-child(4){
@@ -52,7 +52,7 @@ const Summary = styled.div`
             text-align:center;
             padding-right:5px;
             font-size:12px;
-            margin-left:5px;
+            /* margin-left:5px; */
         }
     }
 `
@@ -85,7 +85,7 @@ class StateWise extends Component {
                                 {this.state.data[st].districtData[district].confirmed} &nbsp;
                                 {
                                     this.state.data[st].districtData[district].delta.confirmed > 0 &&
-                                    <span style={{color:"#C31111"}}>
+                                    <span>
                                         &#8593;{this.state.data[st].districtData[district].delta.confirmed}
                                     </span>
                                 }
@@ -133,7 +133,7 @@ class StateWise extends Component {
                                                 
                                             </span>
                                         </div>
-                                        <Summary style={{width:'113%'}}>
+                                        <Summary style={{width:'110%'}}>
                                             <div>
                                                 {st.confirmed}
                                                 {
