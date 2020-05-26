@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TopNav from '../../components/TopNav/TopNav';
-// import CountryMap from '../../components/CountryMap/CountryMap';
+import CountryMap from '../../components/CountryMap/CountryMap';
 
 class IndiaMap extends Component {
     render() {
@@ -8,7 +8,7 @@ class IndiaMap extends Component {
             <div>
                 <TopNav to={"/india"} />
                 <div style={{marginTop:'50px'}}>
-                    {/* <CountryMap /> */}
+                    <CountryMap />
                 </div>
             </div>
         );

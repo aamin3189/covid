@@ -102,6 +102,14 @@ class DashboardV1 extends Component {
                         <i style={{marginRight:'20px',color: "#52a026",fontWeight: "bold"}} className="fa fa-whatsapp refresh-icon"></i>
                     </a>
                 </div>
+
+
+                
+
+
+
+
+
                 <div className="top">
                     <div style={{marginTop:15}}>
                         { this.state.totalStats ?

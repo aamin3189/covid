@@ -27,7 +27,7 @@ class App extends React.Component {
           <Route path="/credits" component={Credits} />
           <Route path="/map" component={WorldMap} />
           <Route path="/india" component={India} />
-          {/* <Route path="/india-map" component={IndiaMap} /> */}
+          <Route path="/india-map" component={IndiaMap} />
         </HashRouter>
       </div>
     );

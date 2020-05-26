@@ -146,6 +146,7 @@ class India extends Component {
                       <span className="header" style={{color:'#7c7c7c'}}> 
                         Statewise Data
                       </span>
+                      <Link style={{float:'right'}} to="/india-map">Mapview</Link>
                     </div>
                     <StateWise agregatedData={this.state.data.statewise} />
                 </div>
@@ -169,9 +170,9 @@ class India extends Component {
 
 
                 <LineChart height={100} width={window.screen.width - 50}  data={this.state.data.cases_time_series}>
-                    <Line type='monotone' dataKey='dailydeceased' stroke='#C31111' dot={null} strokeWidth={2} />
-                    <Line type='monotone' dataKey='dailyconfirmed' stroke='#EB9B1B' dot={null} strokeWidth={2} />
-                    <Line type='monotone' dataKey='dailyrecovered' stroke='#3B830D' dot={null} strokeWidth={2} />
+                    <Line type='monotone' dataKey='totaldeceased' stroke='#C31111' dot={null} strokeWidth={2} />
+                    <Line type='monotone' dataKey='totalconfirmed' stroke='#EB9B1B' dot={null} strokeWidth={2} />
+                    <Line type='monotone' dataKey='totalrecovered' stroke='#3B830D' dot={null} strokeWidth={2} />
                 </LineChart>
                 </>
               ) : (

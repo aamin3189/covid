@@ -36,4 +36,10 @@
         // display: grid;
         // grid-template-columns: repeat(1fr 1fr);
     }
+    .__skeletons{
+        .react-loading-skeleton{
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+    }
 }

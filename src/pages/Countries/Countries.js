@@ -60,10 +60,10 @@ class Countries extends Component {
         } else if( sortBy == "New Deaths"){
             whichSort = "todayDeaths"
         }
-
-
-
-        Axios.get(`${conf.api}/countries?sort=${whichSort}`).then((resp)=>{
+        this.setState({
+            countries: []
+        })
+        Axios.get(`${conf.api}/v2/countries?sort=${whichSort}`).then((resp)=>{
             this.setState({
                 countries: resp.data
             });
@@ -98,7 +98,7 @@ class Countries extends Component {
                         />
                     </div>
                 </div>
-                <div className="list">
+                <div className="list __skeletons">
                     {
                         this.state.countries.length > 0 ?
                         this.state.countries.map((c,i)=>
@@ -109,9 +109,10 @@ class Countries extends Component {
                         )
                         :
                         <Skeleton 
-                            height={10}
-                            width={window.screen.width}
-                            count={20}
+                            height={30}
+                            width={"100wh"}
+                            count={40}
+                            style={{marginTop:'10px',marginBotton:'10px'}}
                         />
                     }
                 </div>

@@ -44,7 +44,7 @@ const  getTotalStats = async () => {
     let stats = [
       {
         name: "Active Case",
-        value: apiData.cases - apiData.deaths - apiData.recovered,
+        value: apiData.active,
         color: "#EB9B1B"
       },
       {
@@ -60,7 +60,8 @@ const  getTotalStats = async () => {
     ];
     return {
       stats: stats,
-      total: apiData.cases
+      total: apiData.cases,
+      apiData: apiData
     }
   });
   return data

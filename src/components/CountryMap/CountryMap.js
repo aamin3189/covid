@@ -120,16 +120,21 @@ class CountryMap extends Component {
 
         for(let i =0 ;i < data.length; i++){
             data[i][1] = parseInt(data[i][1])
-            let state = data[i][0].split("-");
-            state = state[1].toUpperCase();
+            let state;
+            try{
+                state = data[i][0].split("-");
+                state = state[1].toUpperCase();
+                const inx = _.findIndex(stateData,(x)=>{
+                    return x.statecode == state
+                })
 
-            const inx = _.findIndex(stateData,(x)=>{
-                return x.statecode == state
-            })
+                if(inx > -1){
+                    data[i][1] = parseInt(stateData[inx].confirmed)
+                }
+            }catch(e){
 
-            if(inx > -1){
-                data[i][1] = parseInt(stateData[inx].confirmed)
             }
+            
         }
 
         let max = _.max(data,x=>x[1])
