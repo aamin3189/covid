@@ -9,6 +9,9 @@ This is a React project shows realtime Dashboard and Visualization of global pan
 <img height="500" src="https://raw.githubusercontent.com/aamin3189/covid/master/assets/screenshots/countries.png"> &nbsp;&nbsp;
 
 
+## Newly added features
+
+Added Dark theme
 
 
 ## Getting Started
