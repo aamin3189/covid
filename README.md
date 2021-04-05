@@ -11,7 +11,7 @@ This is a React project shows realtime Dashboard and Visualization of global pan
 
 ## Newly added features
 
-Added Dark theme
+Added Dark theme - changes from another client
 
 
 ## Getting Started
