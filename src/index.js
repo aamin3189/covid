@@ -6,6 +6,7 @@ import { AppContainer } from 'react-hot-loader';
 import configureStore, { history } from './store/configureStore';
 import 'antd-mobile/dist/antd-mobile.css';
 import Root from './components/Root';
+import './styles/theme.scss';
 import './styles/styles.scss'; 
 require('./favicon.ico'); // Tell webpack to load favicon.ico
 const store = configureStore();

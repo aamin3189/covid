@@ -102,21 +102,14 @@ class DashboardV1 extends Component {
                         <i style={{marginRight:'20px',color: "#52a026",fontWeight: "bold"}} className="fa fa-whatsapp refresh-icon"></i>
                     </a>
                 </div>
-
-
-                
-
-
-
-
-
                 <div className="top">
                     <div style={{marginTop:15}}>
                         { this.state.totalStats ?
                             <Bulet 
                                 color={"#EB9B25"}
                                 title={"Active Case"}
-                                mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
+                                // mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
+                                mainNumber={`${(this.state.totalStats.totalStats.active/1000000).toFixed(1)}M`}
                                 count={
                                     <span>
                                         <UpArrow size={10} color="#7C7C7C" />{`${this.numberWithCommas(this.state.totalStats.totalStats.newCases)} New`}
@@ -133,7 +126,8 @@ class DashboardV1 extends Component {
                             <Bulet 
                                 color={"#3B8313"}
                                 title={"Recovered"}
-                                mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.recovered)}
+                                // mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.recovered)}
+                                mainNumber={`${(this.state.totalStats.totalStats.recovered/1000000).toFixed(1)}M`}
                                 count={`${(
                                     (this.state.totalStats.totalStats.recovered / this.state.totalStats.totalStats.cases) *
                                     100
@@ -150,7 +144,8 @@ class DashboardV1 extends Component {
                             <Bulet 
                                 color={"#C31112"}
                                 title={"Death"}
-                                mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.deaths)}
+                                // mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.deaths)}
+                                mainNumber={`${(this.state.totalStats.totalStats.deaths/1000000).toFixed(1)}M`}
                                 count={
                                     <span>
                                         <UpArrow size={10} color="#7C7C7C" />{`${this.numberWithCommas(this.state.totalStats.totalStats.newDeaths)} New`}
@@ -251,15 +246,15 @@ class DashboardV1 extends Component {
                 </div>}
 
 
-                <div className="precutions">
+                {/* <div className="precutions">
                     <img style={{width:'100%'}} src={require("./safty.png")} alt="safty" />
-                </div>
+                </div> */}
                 <div className="banner">
                     <img style={{width:'100%'}} src={require("./StayHome.jpg")} alt="safty" />
                 </div>
                 <div style={{textAlign:'center'}}>
                     <Link to="credits" style={{color: "#EB5569"}}>
-                        Credits >
+                        Credits
                     </Link>
                 </div>
 

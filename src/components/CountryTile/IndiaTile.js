@@ -51,7 +51,6 @@ const Stat = styled.div`
         }
     }
     .case{
-        color:#7c7c7c;
         font-size:10px
     }
 `
@@ -76,7 +75,7 @@ class IndiaTile extends Component {
                 {
                     this.state.data &&
                     <Inc onClick={()=>this.props.history.push("/india")}>
-                        <Head>
+                        <Head className="text">
                             <img style={{height:12,marginRight:5}} src={indianFlag} alt="Country" />
                             INDIA
                             {/* <Circle />

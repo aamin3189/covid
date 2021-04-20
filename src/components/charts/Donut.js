@@ -20,7 +20,7 @@ export default class NDonut extends PureComponent {
           <Label width={30} position="center"
             content={
                 <CustomLabel 
-                value1={numberWithCommas(this.props.total)} 
+                value1={`${(this.props.total/1000000).toFixed(1)}M`} 
                 value2={"Total Worldwide"}
                 />}>
           </Label>

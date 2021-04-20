@@ -17,7 +17,7 @@ function Bulet(props) {
         <div style={{marginBottom: '1em'}}>
             <div style={{marginBottom:'4px'}}>
                 {/* <Circle color={props.color} /> */}
-                <div style={{fontWeight:300,fontSize:'12px'}}>
+                <div className="bullet-head" style={{fontWeight:300,fontSize:'12px'}}>
                     {props.title} 
                 </div>
             </div>
@@ -26,7 +26,7 @@ function Bulet(props) {
                 <Link to={""} style={{fontWeight:400,fontSize:'20px',color: props.color}}>
                     {props.mainNumber} 
                 </Link>
-            <div style={{fontSize:'12px',color:"#7c7c7c",    marginTop: '5px'}}>{props.count}</div>
+            <div className="bullet-subtext" style={{fontSize:'12px',marginTop: '5px'}}>{props.count}</div>
             </div>
         </div>
     );

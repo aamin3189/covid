@@ -1,15 +1,14 @@
 // @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,700,900&display=swap');
 // @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 body {
   // font-family: 'Poppins', sans-serif;
   // font-family: 'Varela Round', sans-serif;
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Ubuntu', sans-serif;
-  background-color: #FFF;
+  font-family: sans-serif;
+  background-color: var(--background-color);
 }
-.am-search-clear{
+.am-search-clear {
   display: none !important;
 }
 
@@ -27,49 +26,53 @@ body {
     visibility: hidden;
   }
 }
-.am-pull-to-refresh-indicator{
-  display: none !important
+.am-pull-to-refresh-indicator {
+  display: none !important;
 }
-.am-search-synthetic-ph{
-    position: absolute;
-    left: 11px;
+.am-search-synthetic-ph {
+  position: absolute;
+  left: 11px;
 }
 
-.timeline{
-  border: 1px solid #DDDDDD;
+.timeline {
+  border: 1px solid var(--gray-border);
   border-radius: 4px;
   padding: 4px;
   text-align: left;
-  .header{
-      font-size: 12px;
-      position: absolute;
-      color: #7c7C7C;
-      margin-left: 10px;
-      margin-top: 4px;
+  .header {
+    font-size: 12px;
+    position: absolute;
+    color: var(--graytext);
+    margin-left: 10px;
+    margin-top: 4px;
   }
 }
-.back-icon{
+.tile {
+  border: 1px solid var(--gray-border);
+}
+
+.back-icon {
   position: absolute;
   bottom: 25px;
   left: 13px;
-  color: #E57180;
+  color: #e57180;
   font-size: 20px;
 }
-.am-list-item .am-list-line .am-list-content{
+.am-list-item .am-list-line .am-list-content {
   font-size: 14px;
 }
-.am-accordion .am-accordion-item .am-accordion-header{
+.am-accordion .am-accordion-item .am-accordion-header {
   font-size: 14px;
 }
-.am-accordion .am-accordion-item .am-accordion-header{
+.am-accordion .am-accordion-item .am-accordion-header {
   height: 68px;
   padding-left: 5px;
 }
 .am-button-primary {
-  background-color: #EB5569;
+  background-color: #eb5569;
   border: none !important;
 }
-.am-accordion .am-accordion-item .am-accordion-header i{
+.am-accordion .am-accordion-item .am-accordion-header i {
   background-size: 10px 10px;
   position: absolute;
   right: 0;
@@ -77,10 +80,47 @@ body {
 
 .search-modal {
   animation-name: example;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 @keyframes example {
-  from {top: 100vh;}
-  to {top:0}
+  from {
+    top: 100vh;
+  }
+  to {
+    top: 0;
+  }
+}
+
+.bullet-head {
+  color: var(--content-text);
+}
+.bullet-subtext {
+  color: var(--gray2);
+}
+.recharts-text {
+  tspan {
+    fill: var(--content-text);
+  }
+}
+
+.recharts-pie-sector {
+  path {
+    stroke: none;
+  }
+}
+
+.text {
+  color: var(--content-text);
+}
+.case {
+  color: var(--gray2);
+}
+
+.am-search {
+  background-color: var(--background-color);
+}
+.am-search-synthetic-ph {
+  background-color: var(--input-bg);
+  width: 100% !important;
 }

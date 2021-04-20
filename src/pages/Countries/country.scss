@@ -1,43 +1,44 @@
-@import '../../styles/variable.scss';
+@import "../../styles/variable.scss";
 
-.country-item{
-    border-bottom: 1px solid #eee;
-    padding: 15px 0 15px 0;
-    .top-line{
-        margin-bottom: 7px;
-        .name{
-            float: left;
-            margin-left: 8px;
-        }
-        .case{
-            text-align: right;
-            color: $nSecondText;
-        }
+.country-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 0 15px 0;
+  .top-line {
+    margin-bottom: 7px;
+    .name {
+      float: left;
+      margin-left: 8px;
+      color: var(--content-text);
     }
-    .second-line{
-        margin-left: 38px;
-        span{
-            margin-right: 10px;
-            font-size: 12px;
-        }
-        .active{
-            color: $nyellow;
-        }
-        .dead{
-            color: $nRed;
-        }
-        .recovered{
-            color: $nGreen;
-        }
+    .case {
+      text-align: right;
+      color: $nSecondText;
     }
-    .country-flag{
-        width: 30px;
-        float: left;
+  }
+  .second-line {
+    margin-left: 38px;
+    span {
+      margin-right: 10px;
+      font-size: 12px;
     }
-    .c-info{
-        float: left;
+    .active {
+      color: $nyellow;
     }
-    a{
-        color: #000;
+    .dead {
+      color: $nRed;
     }
+    .recovered {
+      color: $nGreen;
+    }
+  }
+  .country-flag {
+    width: 30px;
+    float: left;
+  }
+  .c-info {
+    float: left;
+  }
+  a {
+    color: #000;
+  }
 }
