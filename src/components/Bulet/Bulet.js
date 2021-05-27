@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import TinyLineSingle from '../TinyLinechart/TinyLineSingle';
 
 
 const Circle = styled.div`
@@ -15,6 +16,16 @@ const Circle = styled.div`
 function Bulet(props) {
     return (
         <div style={{marginBottom: '1em'}}>
+
+            <div>
+                <TinyLineSingle
+                    color={props.color}
+                    data={props.series}
+                    height={30}
+                    width={80}
+                    dataKey="value"
+                />
+            </div>
             <div style={{marginBottom:'4px'}}>
                 {/* <Circle color={props.color} /> */}
                 <div className="bullet-head" style={{fontWeight:300,fontSize:'12px'}}>

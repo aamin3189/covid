@@ -5,12 +5,17 @@
   margin: 1.3em;
   .top {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    // grid-template-columns: 1fr 1fr;
     /*background: rgb(63,94,251);
         background: linear-gradient(90deg, rgba(63, 94, 251, 0.10) 0%, rgba(252, 70, 107, 0.11) 100%);
         */
     padding-left: 10px;
     border-radius: 5px;
+    .bullet-container {
+      display: flex;
+      margin-top: 15px;
+      justify-content: space-between;
+    }
   }
   .head-text {
     color: var(--darkgray);

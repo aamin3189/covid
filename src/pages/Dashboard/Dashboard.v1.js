@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './dashboard.v1.scss';
 import Bulet from '../../components/Bulet/Bulet';
-import { getTotalStats,historicalData,getDetailedStats,getIndiaStats,getZones } from '../../utils/dataOpsWM';
+import { getTotalStats,historicalData,getDetailedStats,getIndiaStats,getZones,gethistoricalAll } from '../../utils/dataOpsWM';
 import NDonut from '../../components/charts/Donut';
 import TinyLineChart from '../../components/TinyLinechart/TinyLineChart';
 import CountryTile from '../../components/CountryTile/CountryTile';
@@ -15,6 +15,7 @@ import UpArrow from '../../components/UpArrow/UpArrow';
 import _ from 'underscore';
 import Axios from 'axios';
 import SeacrhLocation from './SeacrhLocation';
+import CustomBar from '../../components/CustomBar/CustomBar';
 
 class DashboardV1 extends Component {
 
@@ -24,7 +25,8 @@ class DashboardV1 extends Component {
         loading: true,
         historicalData: null,
         india: null,
-        zones: null
+        zones: null,
+        lineSeries: null
     };
 
     componentDidMount(){
@@ -60,6 +62,12 @@ class DashboardV1 extends Component {
             localStorage.setItem("countries", JSON.stringify(data.countries));
         });
         this.getIndiaData();
+
+        gethistoricalAll().then(data=>{
+            this.setState({
+                lineSeries: data
+            })
+        })
     }
 
     numberWithCommas(x) {
@@ -103,11 +111,25 @@ class DashboardV1 extends Component {
                     </a>
                 </div>
                 <div className="top">
-                    <div style={{marginTop:15}}>
+
+                    <div>
+                     {this.state.stats ?
+                        <CustomBar 
+                            data={this.state.stats}
+                            dataKey="percentage"
+                        />
+                        :
+                        <Skeleton active />
+                    }
+                        
+                    </div>
+
+                    <div style={{marginTop:15}} className="bullet-container">
                         { this.state.totalStats ?
                             <Bulet 
                                 color={"#EB9B25"}
                                 title={"Active Case"}
+                                series={this.state.lineSeries.cases}
                                 // mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.active)}
                                 mainNumber={`${(this.state.totalStats.totalStats.active/1000000).toFixed(1)}M`}
                                 count={
@@ -126,6 +148,7 @@ class DashboardV1 extends Component {
                             <Bulet 
                                 color={"#3B8313"}
                                 title={"Recovered"}
+                                series={this.state.lineSeries.recovered}
                                 // mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.recovered)}
                                 mainNumber={`${(this.state.totalStats.totalStats.recovered/1000000).toFixed(1)}M`}
                                 count={`${(
@@ -144,6 +167,7 @@ class DashboardV1 extends Component {
                             <Bulet 
                                 color={"#C31112"}
                                 title={"Death"}
+                                series={this.state.lineSeries.deaths}
                                 // mainNumber={this.numberWithCommas(this.state.totalStats.totalStats.deaths)}
                                 mainNumber={`${(this.state.totalStats.totalStats.deaths/1000000).toFixed(1)}M`}
                                 count={
@@ -161,7 +185,7 @@ class DashboardV1 extends Component {
                         }
                     
                     </div>
-                    <div>
+                    {/* <div>
                         {
                             this.state.stats ?
                             <NDonut 
@@ -182,9 +206,9 @@ class DashboardV1 extends Component {
                                 <Skeleton circle={true} height={130} width={130} />
                             </div>
                         }
-                    </div>
+                    </div> */}
                 </div>
-                <div className="timeline">
+                {/* <div className="timeline">
                     {
                         this.state.historicalData ?
                         <>
@@ -208,7 +232,7 @@ class DashboardV1 extends Component {
                         <Skeleton height={100} width={window.screen.width-40} />
                     }
                 
-                </div>
+                </div> */}
                 <div className="countries">
                     { this.state.totalStats && this.state.india &&
                         <>

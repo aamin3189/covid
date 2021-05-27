@@ -45,17 +45,20 @@ const  getTotalStats = async () => {
       {
         name: "Active Case",
         value: apiData.active,
-        color: "#EB9B1B"
+        color: "#EB9B1B",
+        percentage: (apiData.active/apiData.cases)*100
       },
       {
         name: "Recovered",
         value: apiData.recovered,
-        color: "#3B830D"
+        color: "#3B830D",
+        percentage: (apiData.recovered/apiData.cases)*100
       },
       {
         name: "Deaths",
         value: apiData.deaths,
-        color: "#C31111"
+        color: "#C31111",
+        percentage: (apiData.deaths/apiData.cases)*100
       }
     ];
     return {
@@ -144,11 +147,39 @@ const getIndiaStats = async () => {
 }
 
 
+const gethistoricalAll = async () => {
+  const data = await Axios.get('https://corona.lmao.ninja/v2/historical/all').then((r)=>r.data);
+
+  function getData(obj) {
+    const newArr = [];
+    var key = Object.keys(obj);
+    for(let i = 0; i < key.length; i++){
+      let val;
+      if(key[i+1] !== undefined){
+        val = obj[key[i+1]] - obj[key[i]]
+      }
+      newArr.push({
+        date: key[i],
+        value: val
+      })
+    }
+    return newArr
+  }
+
+  return {
+    cases: getData(data.cases),
+    recovered: getData(data.recovered),
+    deaths: getData(data.deaths)
+  }
+}
+
+
 export {
   getDetailedStats,
   getTotalStats,
   historicalData,
   getHistoricalDataContry,
   getIndiaStats,
-  getZones
+  getZones,
+  gethistoricalAll
 }
