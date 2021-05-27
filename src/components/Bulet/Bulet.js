@@ -15,7 +15,7 @@ const Circle = styled.div`
 `
 function Bulet(props) {
     return (
-        <div style={{marginBottom: '1em'}}>
+        <div style={{marginBottom: '1em',textAlign: 'center'}}>
 
             <div>
                 <TinyLineSingle
