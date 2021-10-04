@@ -72,7 +72,7 @@ const  getTotalStats = async () => {
 
 
 const getZones = async () => {
-  const data = await Axios.get("https://api.covid19india.org/zones.json").then(resp=>{
+  const data = await Axios.get("https://data.covid19india.org/zones.json").then(resp=>{
     return resp.data.zones
   })
   return data;
@@ -143,7 +143,7 @@ const getHistoricalDataContry = async (country) => {
 
 
 const getIndiaStats = async () => {
-  return await Axios.get('https://api.covid19india.org/data.json').then((r)=>r.data)
+  return await Axios.get('https://data.covid19india.org/data.json').then((r)=>r.data)
 }
 
 

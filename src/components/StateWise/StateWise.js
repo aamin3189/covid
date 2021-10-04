@@ -63,7 +63,7 @@ class StateWise extends Component {
         data: null
     }
     componentDidMount(){
-        Axios.get("https://api.covid19india.org/state_district_wise.json").then((resp)=>{
+        Axios.get("https://data.covid19india.org/state_district_wise.json").then((resp)=>{
             this.setState({
                 data: resp.data
             })
